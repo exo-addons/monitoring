@@ -16,7 +16,7 @@ DONE
 TODO
 ===============
 
--Export all metrics into csv file.
--Add a chart that displays all queries statistics.
--Add a chart to display details on a selected table entry.
+- Export all metrics into csv file.
+- Add a chart that displays all queries statistics.
+- Add a chart to display details on a selected table entry.
 
