@@ -4,7 +4,7 @@ import juzu.Path;
 import juzu.Response;
 import juzu.View;
 import juzu.template.Template;
-import org.exoplatform.addon.statistics.services.CacheRestService;
+import org.exoplatform.addon.statistics.services.StatisticsRestService;
 import org.exoplatform.addon.statistics.services.HibernateStatisticsService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -22,7 +22,7 @@ public class HibernateStatisticsController {
     @Inject
     HibernateStatisticsService hibernateStatisticsService;
     @Inject
-    CacheRestService cacheRestService;
+    StatisticsRestService statisticsRestService;
     @Inject
     StatisticsService statisticsService;
     @Inject
@@ -43,7 +43,6 @@ public class HibernateStatisticsController {
     @Inject
     @Path("cache.gtmpl")
     Template cache;
- double maxQueryPerformance=0.0;
 
     @View
     public Response.Content index() throws  Exception{

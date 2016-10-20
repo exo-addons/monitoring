@@ -28,8 +28,8 @@ import java.util.Set;
 /**
  * Created by ngammoudi on 10/14/16.
  */
-@Path("/cacheservice")
-public class CacheRestService implements ResourceContainer {
+@Path("/exo-statistics")
+public class StatisticsRestService implements ResourceContainer {
 
     /**
      * Rest service to load alll queries statistics
@@ -37,7 +37,7 @@ public class CacheRestService implements ResourceContainer {
      * @throws Exception
      */
     @GET
-    @Path("queriesstatistics")
+    @Path("queries")
     @Produces({MediaType.APPLICATION_JSON})
     public Response loadQueriesStatistics()  throws  Exception{
         HibernateStatisticsService hibernateStatisticsService=PortalContainer.getInstance().getComponentInstanceOfType(HibernateStatisticsService.class);
@@ -79,7 +79,7 @@ public class CacheRestService implements ResourceContainer {
      * @throws Exception
      */
     @GET
-    @Path("entitiesstatistics")
+    @Path("entities")
     @Produces({MediaType.APPLICATION_JSON})
     public Response loadEntitiesStatistics()  throws  Exception{
         HibernateStatisticsService hibernateStatisticsService=PortalContainer.getInstance().getComponentInstanceOfType(HibernateStatisticsService.class);
@@ -124,7 +124,7 @@ public class CacheRestService implements ResourceContainer {
      * @throws Exception
      */
     @GET
-    @Path("collectionsstatistics")
+    @Path("collections")
     @Produces({MediaType.APPLICATION_JSON})
     public Response loadCollectionsStatistics()  throws  Exception{
         HibernateStatisticsService hibernateStatisticsService=PortalContainer.getInstance().getComponentInstanceOfType(HibernateStatisticsService.class);
@@ -166,7 +166,7 @@ public class CacheRestService implements ResourceContainer {
      * @throws Exception
      */
     @GET
-    @Path("cachestatistics")
+    @Path("caches")
     @Produces({MediaType.APPLICATION_JSON})
     public Response loadCacheStatistics() throws Exception {
         JSONArray jsonCaches = new JSONArray();

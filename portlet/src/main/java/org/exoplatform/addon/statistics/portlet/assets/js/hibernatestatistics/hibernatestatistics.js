@@ -14,7 +14,7 @@ var queriesStatisticsTable=
    jQuery('#queriesTable').DataTable( {
     "bProcessing": false,
     "bServerSide": false,
-    "sAjaxSource": "/rest/private/cacheservice/queriesstatistics/",
+    "sAjaxSource": "/rest/private/exo-statistics/queries/",
     "aoColumns": [
                 { "mData": "query" },
                 { "mData": "Cached" },
@@ -43,7 +43,7 @@ var entitiesStatisticsTable=
  jQuery('#entitiesTable').DataTable( {
     "bProcessing": false,
     "bServerSide": false,
-    "sAjaxSource": "/rest/private/cacheservice/entitiesstatistics/",
+    "sAjaxSource": "/rest/private/exo-statistics/entities/",
     "aoColumns": [
                 { "mData": "entity" },
                 { "mData": "EntityPerformance" },
@@ -75,7 +75,7 @@ var cachesStatisticsTable=
  jQuery('#cachesTable').DataTable( {
     "bProcessing": false,
     "bServerSide": false,
-    "sAjaxSource": "/rest/private/cacheservice/cachestatistics/",
+    "sAjaxSource": "/rest/private/exo-statistics/caches/",
     "aoColumns": [
                     { "mDataProp": "Name" },
                     { "mDataProp": "HitCount" },
@@ -104,7 +104,7 @@ var collectionsStatisticsTable=
  jQuery('#collectionsTable').DataTable( {
     "bProcessing": false,
     "bServerSide": false,
-    "sAjaxSource": "/rest/private/cacheservice/collectionsstatistics/",
+    "sAjaxSource": "/rest/private/exo-statistics/collections/",
     "aoColumns": [
                 { "mData": "collection" },
                 { "mData": "CollectionPerformance" },

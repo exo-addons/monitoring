@@ -28,7 +28,7 @@
     </component>
 
     <component>
-        <type>org.exoplatform.addon.statistics.services.CacheRestService</type>
+        <type>org.exoplatform.addon.statistics.services.StatisticsRestService</type>
     </component>
 
 </configuration>
