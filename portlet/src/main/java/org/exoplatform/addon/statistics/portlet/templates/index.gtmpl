@@ -1,0 +1,33 @@
+<div id="hibernateMonitor">
+  <div class="uiBox">
+    <h5 class="title">Hibernate Monitor</h5>
+    <div class="uiContentBox">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#queries" aria-controls="#queries" role="tab" data-toggle="tab">Queries</a></li>
+                <li><a href="#collections" aria-controls="#collections" role="tab" data-toggle="tab">Collections</a></li>
+                <li><a href="#entities" aria-controls="#entities" role="tab" data-toggle="tab">Entities</a></li>
+                <li><a href="#cache" aria-controls="#cache" role="tab" data-toggle="tab">Cache</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="queries">
+          #{include path=queries.gtmpl}#{/include}
+        </div>
+         <div role="tabpanel" class="tab-pane" id="collections">
+           #{include path=collections.gtmpl}#{/include}
+         </div>
+        <div role="tabpanel" class="tab-pane" id="entities">
+           #{include path=entities.gtmpl}#{/include}
+         </div>
+         <div role="tabpanel" class="tab-pane" id="cache">
+             #{include path=cache.gtmpl}#{/include}
+         </div>
+      </div>
+    </div>
+  </div>
+</div>

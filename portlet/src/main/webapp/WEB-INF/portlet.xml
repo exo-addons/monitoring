@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+             version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd
+   http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
+    <portlet>
+        <portlet-name>Hibernate-Statistics-Portlet</portlet-name>
+        <display-name xml:lang="EN">Hibernate Statistics Portlet</display-name>
+        <portlet-class>org.exoplatform.addon.statistics.portlet.HibernateStatisticsPortlet</portlet-class>
+        <init-param>
+            <name>juzu.run_mode</name>
+            <value>dev</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>HibernateStatisticsPortlet</title>
+            <keywords>Hibernate Statistics Portlet</keywords>
+        </portlet-info>
+    </portlet>
+</portlet-app>
