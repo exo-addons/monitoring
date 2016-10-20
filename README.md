@@ -5,6 +5,7 @@ Real Time monitoring of eXo Platform
 
 DONE
 ===============
+
 - Display HQL statistics in real time (time in DB ,query performance,invocations count ,...)
 - Display collections and entities statistics
 - Display eXo caches statistics (HitCount,MissCount,...)
@@ -14,7 +15,8 @@ DONE
 
 TODO
 ===============
--Export all metrics into csv file
+
+-Export all metrics into csv file.
 -Add a chart that displays all queries statistics.
 -Add a chart to display details on a selected table entry.
 
