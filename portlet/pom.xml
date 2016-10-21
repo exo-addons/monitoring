@@ -5,17 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.exoplatform.addons.statistics</groupId>
-        <artifactId>hibernate-statistics-configuration</artifactId>
+        <groupId>org.exoplatform.addons.monitoring</groupId>
+        <artifactId>monitoring-configuration</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>hibernate-statistics-portlet</artifactId>
+    <artifactId>monitoring-portlet</artifactId>
     <packaging>war</packaging>
-    <name>Hibernate Statistics - Portlet</name>
+    <name>eXo Monitoring - Portlet</name>
     <dependencies>
         <dependency>
-            <groupId>org.exoplatform.addons.statistics</groupId>
-            <artifactId>hibernate-statistics-service</artifactId>
+            <groupId>org.exoplatform.addons.monitoring</groupId>
+            <artifactId>monitoring-service</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
@@ -106,6 +106,6 @@
                 </includes>
             </resource>
         </resources>
-        <finalName>hibernate-statistics-portlet</finalName>
+        <finalName>monitoring-portlet</finalName>
     </build>
 </project>

@@ -6,13 +6,13 @@
 
 
     <parent>
-        <groupId>org.exoplatform.addons.statistics</groupId>
-        <artifactId>hibernate-statistics-configuration</artifactId>
+        <groupId>org.exoplatform.addons.monitoring</groupId>
+        <artifactId>monitoring-configuration</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>hibernate-statistics-service</artifactId>
+    <artifactId>monitoring-service</artifactId>
     <packaging>jar</packaging>
-    <name>Hibernate Statistics - Service</name>
+    <name>eXo Monitoring - Service</name>
     <dependencies>
         <dependency>
             <groupId>org.exoplatform.commons</groupId>
