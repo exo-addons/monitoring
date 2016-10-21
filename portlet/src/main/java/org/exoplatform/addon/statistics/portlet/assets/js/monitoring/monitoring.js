@@ -17,19 +17,17 @@ var queriesStatisticsTable=
     "sAjaxSource": "/rest/private/exo-statistics/queries/",
     "aoColumns": [
                 { "mData": "query" },
-                { "mData": "Cached" },
                 { "mData": "Performance" },
                 { "mData": "DBTime" },
                 { "mData": "RowsFetched" },
                 { "mData": "Invocations" }
               ],
     "columnDefs": [
-                    { "width": "60%", "targets": 0},
-                    { "width": "8%", "targets": 1 },
-                    { "width": "8%", "targets": 2 },
-                    { "width": "8%", "targets": 3 },
-                    { "width": "8%", "targets": 4 },
-                    { "width": "8%", "targets": 5 }
+                    { "width": "64%", "targets": 0},
+                    { "width": "9%", "targets": 1 },
+                    { "width": "9%", "targets": 2 },
+                    { "width": "9%", "targets": 3 },
+                    { "width": "9%", "targets": 4 }
                   ]
 
                                            });

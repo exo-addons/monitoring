@@ -17,8 +17,8 @@ import javax.inject.Inject;
  */
 
 
-public class HibernateStatisticsController {
-    private static final Log LOGGER = ExoLogger.getLogger(HibernateStatisticsController.class);
+public class MonitoringController {
+    private static final Log LOGGER = ExoLogger.getLogger(MonitoringController.class);
     @Inject
     HibernateStatisticsService hibernateStatisticsService;
     @Inject

@@ -32,7 +32,7 @@ import java.util.Set;
 public class StatisticsRestService implements ResourceContainer {
 
     /**
-     * Rest service to load alll queries statistics
+     * Rest service to load all queries statistics
      * @return
      * @throws Exception
      */
@@ -51,12 +51,6 @@ public class StatisticsRestService implements ResourceContainer {
                 JSONObject jsonObject = new JSONObject();
                 QueryStatistics queryStatistics = hibernateStatistics.getStatistics().getQueryStatistics(query);
                 double maxQueryPerformance = Math.max(0, StatisticsUtils.toQueryPerformance(queryStatistics));
-                if (queryStatistics.getCachePutCount() == 0 && queryStatistics.getCacheHitCount() == 0)
-                    jsonObject.put("Cached","n/a");
-                else
-                {
-                    jsonObject.put("Cached",Math.round((StatisticsUtils.toRatio(queryStatistics.getCacheHitCount(), queryStatistics.getCacheMissCount())*100D)* 1000D) / 1000D);
-                }
                 jsonObject.put("Performance",StatisticsUtils.performanceTableCell(maxQueryPerformance,StatisticsUtils.toQueryPerformance(queryStatistics))+" %");
                 jsonObject.put("DBTime",new DecimalFormat("0.###").format(StatisticsUtils.toTotalAverageTime(queryStatistics) / 1000D) + " s");
                 jsonObject.put("Invocations", queryStatistics.getExecutionCount() + queryStatistics.getCacheHitCount());
