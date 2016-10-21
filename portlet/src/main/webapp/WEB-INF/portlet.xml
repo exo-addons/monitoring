@@ -4,9 +4,9 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd
    http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
     <portlet>
-        <portlet-name>Hibernate-Statistics-Portlet</portlet-name>
-        <display-name xml:lang="EN">Hibernate Statistics Portlet</display-name>
-        <portlet-class>org.exoplatform.addon.statistics.portlet.HibernateStatisticsPortlet</portlet-class>
+        <portlet-name>MonitoringPortlet</portlet-name>
+        <display-name xml:lang="EN">Monitoring Portlet</display-name>
+        <portlet-class>org.exoplatform.addon.statistics.portlet.MonitoringPortlet</portlet-class>
         <init-param>
             <name>juzu.run_mode</name>
             <value>dev</value>
@@ -15,8 +15,8 @@
             <mime-type>text/html</mime-type>
         </supports>
         <portlet-info>
-            <title>HibernateStatisticsPortlet</title>
-            <keywords>Hibernate Statistics Portlet</keywords>
+            <title>MonitoringPortlet</title>
+            <keywords>eXo Monitoring Portlet</keywords>
         </portlet-info>
     </portlet>
 </portlet-app>

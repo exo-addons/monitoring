@@ -50,8 +50,7 @@ public class StatisticsRestService implements ResourceContainer {
             for (String query : queries) {
                 JSONObject jsonObject = new JSONObject();
                 QueryStatistics queryStatistics = hibernateStatistics.getStatistics().getQueryStatistics(query);
-                double maxQueryPerformance = Math.max(0, StatisticsUtils.toQueryPerformance(queryStatistics));
-                jsonObject.put("Performance",StatisticsUtils.performanceTableCell(maxQueryPerformance,StatisticsUtils.toQueryPerformance(queryStatistics))+" %");
+                jsonObject.put("Performance",StatisticsUtils.performanceTableCell( StatisticsUtils.toQueryPerformance(queryStatistics),queryStatistics.getExecutionMaxTime())+" %");
                 jsonObject.put("DBTime",new DecimalFormat("0.###").format(StatisticsUtils.toTotalAverageTime(queryStatistics) / 1000D) + " s");
                 jsonObject.put("Invocations", queryStatistics.getExecutionCount() + queryStatistics.getCacheHitCount());
                 jsonObject.put("RowsFetched", queryStatistics.getExecutionRowCount());
@@ -86,16 +85,18 @@ public class StatisticsRestService implements ResourceContainer {
             for (String entity : entitiesStatistics) {
                 JSONObject jsonObject = new JSONObject();
                 EntityStatistics entityStatistics = hibernateStatistics.getStatistics().getEntityStatistics(entity);
-                Long cacheHits=hibernateStatistics.getStatistics().getSecondLevelCacheHitCount();
-                if (entityStatistics.getLoadCount()+cacheHits == 0)
+                double totalLoaded=entityStatistics.getLoadCount() + entityStatistics.getFetchCount();
+                double fastLoads=Math.max(0, (entityStatistics.getLoadCount()) - (entityStatistics.getDeleteCount() + entityStatistics.getInsertCount() + entityStatistics.getUpdateCount()));
+                if (entityStatistics.getLoadCount()== 0)
                     jsonObject.put("EntityPerformance","n/a");
-                else if (entityStatistics.getLoadCount() + entityStatistics.getFetchCount() + cacheHits==0){
+                else if (totalLoaded ==0){
                     jsonObject.put("EntityPerformance",0);
                 }
                 else{
-                    jsonObject.put("EntityPerformance",(Math.max(0, (entityStatistics.getLoadCount() + cacheHits) - (entityStatistics.getDeleteCount() + entityStatistics.getInsertCount() + entityStatistics.getUpdateCount())))/entityStatistics.getLoadCount() + entityStatistics.getFetchCount() + cacheHits);
+
+                    jsonObject.put("EntityPerformance",new DecimalFormat("0.##").format((fastLoads/totalLoaded)*100)+" %");
                 }
-                jsonObject.put("EntityAccessCount", entityStatistics.getFetchCount()+entityStatistics.getLoadCount()+cacheHits);
+                jsonObject.put("EntityAccessCount", entityStatistics.getFetchCount()+entityStatistics.getLoadCount());
                 jsonObject.put("EntityLoadsCount", entityStatistics.getLoadCount());
                 jsonObject.put("EntityFetchesCount", entityStatistics.getFetchCount());
                 jsonObject.put("EntityOptimisticFailureCount", entityStatistics.getOptimisticFailureCount());
@@ -131,16 +132,17 @@ public class StatisticsRestService implements ResourceContainer {
             for (String collection : collectionsStatistics) {
                 JSONObject jsonObject = new JSONObject();
                 CollectionStatistics collectionStatistics = hibernateStatistics.getStatistics().getCollectionStatistics(collection);
-                Long cacheHits=hibernateStatistics.getStatistics().getSecondLevelCacheHitCount();
-                if (collectionStatistics.getLoadCount() + cacheHits == 0)
+                double totalLoaded=collectionStatistics.getLoadCount() + collectionStatistics.getFetchCount();
+                double fastLoads=Math.max(0, (collectionStatistics.getLoadCount()) - (collectionStatistics.getRemoveCount() + collectionStatistics.getRecreateCount() + collectionStatistics.getUpdateCount()));
+                if (collectionStatistics.getLoadCount()  == 0)
                     jsonObject.put("CollectionPerformance","n/a");
-                else if (collectionStatistics.getLoadCount() + collectionStatistics.getFetchCount() + cacheHits==0){
+                else if (totalLoaded ==0){
                     jsonObject.put("CollectionPerformance",0);
                 }
                 else{
-                    jsonObject.put("CollectionPerformance",(Math.max(0, (collectionStatistics.getLoadCount() + cacheHits) - (collectionStatistics.getRemoveCount() + collectionStatistics.getRecreateCount() + collectionStatistics.getUpdateCount())))/collectionStatistics.getLoadCount() + collectionStatistics.getFetchCount() + cacheHits);
+                    jsonObject.put("CollectionPerformance",new DecimalFormat("0.##").format((fastLoads/totalLoaded)*100)+" %");
                 }
-                jsonObject.put("CollectionAccessCount", collectionStatistics.getFetchCount()+collectionStatistics.getLoadCount()+cacheHits);
+                jsonObject.put("CollectionAccessCount", collectionStatistics.getFetchCount()+collectionStatistics.getLoadCount());
                 jsonObject.put("CollectionLoadsCount", collectionStatistics.getLoadCount());
                 jsonObject.put("CollectionFetchesCount", collectionStatistics.getFetchCount());
                 jsonObject.put("CollectionRecreationCount", collectionStatistics.getRecreateCount());

@@ -106,6 +106,6 @@
                 </includes>
             </resource>
         </resources>
-        <finalName>monitoring-portlet</finalName>
+        <finalName>exo-monitoring</finalName>
     </build>
 </project>

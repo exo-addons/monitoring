@@ -1,6 +1,6 @@
 <div id="hibernateMonitor">
   <div class="uiBox">
-    <h5 class="title">Hibernate Monitor</h5>
+    <h5 class="title">Monitoring Application</h5>
     <div class="uiContentBox">
       <div class="navbar">
         <div class="navbar-inner">

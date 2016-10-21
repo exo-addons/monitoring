@@ -19,8 +19,9 @@ var queriesStatisticsTable=
                 { "mData": "query" },
                 { "mData": "Performance" },
                 { "mData": "DBTime" },
-                { "mData": "RowsFetched" },
-                { "mData": "Invocations" }
+                { "mData": "Invocations" },
+                { "mData": "RowsFetched" }
+
               ],
     "columnDefs": [
                     { "width": "64%", "targets": 0},

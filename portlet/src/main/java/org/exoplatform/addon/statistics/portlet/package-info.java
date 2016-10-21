@@ -1,5 +1,5 @@
 @Portlet
-@Application(name = "HibernateStatistics")
+@Application(name = "Monitoring")
 @Bindings({@Binding(HibernateStatisticsService.class)})
 
 @Scripts({
@@ -11,8 +11,8 @@
 
 @Stylesheets({
 
-        @Stylesheet(id = "jquery-datatable-css", value = "css/datatable/jquery.dataTables.min.css"),
-        @Stylesheet(id = "buttons-datatables-css", value = "css/datatable/buttons.dataTables.min.css"),
+        @Stylesheet(id = "jquery-datatable-css", value = "css/datatable/jquery.dataTables.css"),
+        @Stylesheet(id = "buttons-datatables-css", value = "css/datatable/buttons.dataTables.css"),
         @Stylesheet(id = "hibernate-statistics-css", value = "css/monitoring/monitoring.css")})
 @Assets("*")
 package org.exoplatform.addon.statistics.portlet;

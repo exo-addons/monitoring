@@ -4,8 +4,8 @@
                 <th>Query</th>
                 <th>Performance</th>
                 <th>Time in DB</th>
-                <th>Rows Fetched</th>
                 <th>Invocations</th>
+                <th>Rows Fetched</th>
             </tr>
         </thead>
   <tbody>
