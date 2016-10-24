@@ -1,0 +1,23 @@
+<table id="cachesTable" class="display nowrap" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Cache Name</th>
+                <th>HitCount</th>
+                <th>MissCount</th>
+                <th>Capacity</th>
+                <th>Size</th>
+                <th>TimeToLive</th>
+            </tr>
+        </thead>
+<tbody>
+                     <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+
+                     </tr>
+ </tbody>
+</table>

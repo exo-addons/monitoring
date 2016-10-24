@@ -1,0 +1,21 @@
+<table id="queriesTable" class="display nowrap" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Query</th>
+                <th>Performance</th>
+                <th>Time in DB</th>
+                <th>Invocations</th>
+                <th>Rows Fetched</th>
+            </tr>
+        </thead>
+  <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+</tbody>
+</table>

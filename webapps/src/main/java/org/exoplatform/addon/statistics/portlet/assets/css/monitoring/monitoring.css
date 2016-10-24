@@ -1,0 +1,40 @@
+#hibernateMonitor .navbar li {
+  list-style-type: none;
+}
+#hibernateMonitor ul {
+  margin: 0;
+}
+#hibernateMonitor .navbar {
+  margin: 0;
+}
+#hibernateMonitor .navbar-nav {
+  padding: 0;
+}
+
+#hibernateMonitor nav {
+  margin-top: 5px;
+}
+
+#hibernateMonitor .tab-content {
+  padding: 10px;
+}
+table{
+  margin: 0 auto;
+  width: 100%;
+  clear: both;
+  border-collapse: collapse;
+  table-layout: fixed; // ***********add this
+  word-wrap:break-word; // ***********and this
+}
+table.dataTable.nowrap th, table.dataTable.nowrap td {
+    width: 85px!important;
+}
+table.dataTable.nowrap th:nth-child(1), table.dataTable.nowrap td:nth-child(1){
+    width: 40%!important;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+table.dataTable.nowrap th.entitywidth, table.dataTable.nowrap td.entitywidth{
+    width: 110px!important;
+}
+
