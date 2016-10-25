@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.exoplatform.addons.monitoring</groupId>
         <artifactId>monitoring-configuration</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.x-SNAPSHOT</version>
     </parent>
     <artifactId>monitoring-services</artifactId>
     <packaging>jar</packaging>

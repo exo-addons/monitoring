@@ -30,7 +30,7 @@
       <show-max-window>false</show-max-window>
       <portlet-application>
          <portlet>
-            <application-ref>exo-monitoring</application-ref>
+            <application-ref>monitoring</application-ref>
             <portlet-ref>MonitoringPortlet</portlet-ref>
          </portlet>
          <access-permissions>*:/platform/administrators</access-permissions>
