@@ -44,6 +44,10 @@ public class MonitoringController {
     @Path("cache.gtmpl")
     Template cache;
 
+    @Inject
+    @Path("applications.gtmpl")
+    Template applications;
+
     @View
     public Response.Content index() throws  Exception{
 

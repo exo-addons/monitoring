@@ -38,3 +38,7 @@ table.dataTable.nowrap th.entitywidth, table.dataTable.nowrap td.entitywidth{
     width: 110px!important;
 }
 
+table.dataTable.nowrap th.percentage, table.dataTable.nowrap td.percentage{
+    width: 110px!important;
+}
+

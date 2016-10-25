@@ -23,8 +23,8 @@
             
 <page-set>
    <page>
-      <name>exoMonitoring</name>
-      <title>eXo Monitoring</title>
+      <name>statistics</name>
+      <title>Live Statistics</title>
       <access-permissions>*:/platform/administrators</access-permissions>
       <edit-permission>*:/platform/administrators</edit-permission>
       <show-max-window>false</show-max-window>

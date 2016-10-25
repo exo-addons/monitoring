@@ -27,10 +27,10 @@
   <priority>1</priority>
   <page-nodes>
     <node>
-      <uri>exoMonitoring</uri>
-      <name>exoMonitoring</name>
-      <label>eXo Monitoring</label>
-      <page-reference>group::/platform/administrators::exoMonitoring</page-reference>
+      <uri>administration/statistics</uri>
+      <name>statistics</name>
+      <label>Live Statistics</label>
+      <page-reference>group::/platform/administrators::statistics</page-reference>
     </node>
   </page-nodes>
 </node-navigation>

@@ -6,6 +6,7 @@ loadQueriesStatistics();
 loadEntitiesStatistics();
 loadCachesStatistics();
 loadCollectionsStatistics();
+loadApplicationsStatistics();
 });
 } );
 
@@ -129,6 +130,35 @@ setInterval( function () {
 }, 6000 );
 }
 
+function loadApplicationsStatistics(){
+var applicationsStatisticsTable=
+ jQuery('#applicationsTable').DataTable( {
+    "bProcessing": false,
+    "bServerSide": false,
+    "sAjaxSource": "/rest/statistics/application/all/",
+    "aoColumns": [
+                    { "mDataProp": "name" },
+                    { "mDataProp": "maxTime" },
+                    { "mDataProp": "minTime" },
+                    { "mDataProp": "averageTime" },
+                    { "mDataProp": "execution" }
+                  ] ,
+    "columnDefs": [
 
+                     { "width": "60%", "targets": 0,render: function ( data, type, row ) {
+                                                         return data.substring(0,data.indexOf('/'));
+                                                             }},
+                     { "width": "10%", "targets": 1 },
+                     { "width": "10%", "targets": 2 },
+                     { "width": "10%", "targets": 3,render: function ( data, type, row ) {
+                                                        return parseFloat(data).toFixed(2);
+                                                     }  },
+                     { "width": "10%", "targets": 4 }
+                 ]
+                                           });
+setInterval( function () {
+    applicationsStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
+}, 6000 );
+}
 
 

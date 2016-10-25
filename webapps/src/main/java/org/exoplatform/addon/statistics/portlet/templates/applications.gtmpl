@@ -1,0 +1,21 @@
+<table id="applicationsTable" class="display nowrap" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Portlet Name</th>
+                <th>Max Time</th>
+                <th>Min Time</th>
+                <th>Average Time</th>
+                <th>Execution Count</th>
+            </tr>
+        </thead>
+<tbody>
+                     <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+
+                     </tr>
+ </tbody>
+</table>
