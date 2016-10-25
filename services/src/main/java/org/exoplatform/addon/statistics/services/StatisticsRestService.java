@@ -56,9 +56,10 @@ public class StatisticsRestService implements ResourceContainer {
             for (String query : queries) {
                 JSONObject jsonObject = new JSONObject();
                 QueryStatistics queryStatistics = hibernateStatistics.getStatistics().getQueryStatistics(query);
-                jsonObject.put("Performance",StatisticsUtils.performanceTableCell( maxQueryPerformance,StatisticsUtils.toQueryPerformance(queryStatistics))+" %");
-                jsonObject.put("DBTime",new DecimalFormat("0.###").format(StatisticsUtils.toTotalAverageTime(queryStatistics) / 1000D) + " s");
-                jsonObject.put("Invocations", queryStatistics.getExecutionCount() + queryStatistics.getCacheHitCount());
+
+                jsonObject.put("Performance",new DecimalFormat("0.##").format(100*StatisticsUtils.performanceTableCell(maxQueryPerformance, Math.max(0D, maxQueryPerformance - StatisticsUtils.toQueryPerformance(queryStatistics))))+" %");
+                jsonObject.put("DBTime",StatisticsUtils.toTotalAverageTime(queryStatistics)==0?"0.000 s":new DecimalFormat("0.###").format(StatisticsUtils.toTotalAverageTime(queryStatistics) / 1000D) + " s");
+                jsonObject.put("Invocations", queryStatistics.getExecutionCount());
                 jsonObject.put("RowsFetched", queryStatistics.getExecutionRowCount());
                 jsonObject.put("query" , query);
                 jsonQueries.put(jsonObject);
