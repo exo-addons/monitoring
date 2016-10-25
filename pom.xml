@@ -1,66 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <artifactId>addons-parent-pom</artifactId>
-        <groupId>org.exoplatform.addons</groupId>
-        <version>7-M01</version>
-    </parent>
-    <groupId>org.exoplatform.addons.monitoring</groupId>
-    <artifactId>monitoring-configuration</artifactId>
-    <version>1.0.x-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>eXo Monitoring - Addon</name>
-    <modules>
-        <module>services</module>
-        <module>webapps</module>
-        <module>packaging</module>
-    </modules>
-
-    <developers>
-        <developer>
-            <id>ngammoudi</id>
-            <name>Neji Gammoudi</name>
-            <email>ngammoudi@exoplatform.com</email>
-        </developer>
-    </developers>
-
-      <scm>
-        <connection>git@github.com:exo-addons/monitoring.git</connection>
-        <developerConnection>scm:git@github.com:exo-addons/monitoring.git</developerConnection>
-        <tag>HEAD</tag>
-        <url>https://github.com/exo-addons/monitoring</url>
-      </scm>
-
-    <properties>
-        <org.exoplatform.platform.version>4.4.x-SNAPSHOT</org.exoplatform.platform.version>
-    </properties>
-    <dependencyManagement>
-        <dependencies>
-            <!-- Import versions from platform project -->
-            <dependency>
-                <groupId>org.exoplatform.platform</groupId>
-                <artifactId>platform</artifactId>
-                <version>${org.exoplatform.platform.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-	    <dependency>
-                <groupId>org.exoplatform.addons.monitoring</groupId>
-                <artifactId>monitoring-services</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.exoplatform.addons.monitoring</groupId>
-                <artifactId>monitoring-webapps</artifactId>
-                <version>${project.version}</version>
-		<type>war</type>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>addons-parent-pom</artifactId>
+    <groupId>org.exoplatform.addons</groupId>
+    <version>7-M01</version>
+  </parent>
+  <groupId>org.exoplatform.addons.monitoring</groupId>
+  <artifactId>monitoring-configuration</artifactId>
+  <version>1.0.x-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>eXo Monitoring - Addon</name>
+  <developers>
+    <developer>
+      <id>ngammoudi</id>
+      <name>Neji Gammoudi</name>
+      <email>ngammoudi@exoplatform.com</email>
+    </developer>
+  </developers>
+  <modules>
+    <module>services</module>
+    <module>webapps</module>
+    <module>packaging</module>
+  </modules>
+  <scm>
+    <connection>git@github.com:exo-addons/monitoring.git</connection>
+    <developerConnection>scm:git@github.com:exo-addons/monitoring.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>https://github.com/exo-addons/monitoring</url>
+  </scm>
+  <properties>
+    <org.exoplatform.platform.version>4.4.x-SNAPSHOT</org.exoplatform.platform.version>
+    <org.hibernate.jmx.version>3.5.6-Final</org.hibernate.jmx.version>
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <!-- Import versions from platform project -->
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform</artifactId>
+        <version>${org.exoplatform.platform.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.addons.monitoring</groupId>
+        <artifactId>monitoring-services</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.addons.monitoring</groupId>
+        <artifactId>monitoring-webapps</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 </project>
