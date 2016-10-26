@@ -48,6 +48,10 @@ public class MonitoringController {
     @Path("applications.gtmpl")
     Template applications;
 
+    @Inject
+    @Path("templates.gtmpl")
+    Template templates;
+
     @View
     public Response.Content index() throws  Exception{
 

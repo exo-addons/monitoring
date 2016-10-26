@@ -4,6 +4,8 @@
                 <th>Cache Name</th>
                 <th>HitCount</th>
                 <th>MissCount</th>
+                <th>Hit Ratio</th>
+                <th>Miss Ratio</th>
                 <th>Capacity</th>
                 <th>Size</th>
                 <th>TimeToLive</th>
@@ -11,6 +13,8 @@
         </thead>
 <tbody>
                      <tr>
+                          <td></td>
+                          <td></td>
                           <td></td>
                           <td></td>
                           <td></td>

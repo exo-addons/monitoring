@@ -11,6 +11,7 @@
                 <li><a href="#entities" aria-controls="#entities" role="tab" data-toggle="tab">Entities</a></li>
                 <li><a href="#caches" aria-controls="#caches" role="tab" data-toggle="tab">Caches</a></li>
                 <li><a href="#applications" aria-controls="#applications" role="tab" data-toggle="tab">Applications</a></li>
+                <li><a href="#templates" aria-controls="#templates" role="tab" data-toggle="tab">Templates</a></li>
             </ul>
           </div>
         </div>
@@ -33,8 +34,11 @@
              #{include path=cache.gtmpl}#{/include}
          </div>
 
-           <div role="tabpanel" class="tab-pane" id="applications">
+        <div role="tabpanel" class="tab-pane" id="applications">
               #{include path=applications.gtmpl}#{/include}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="templates">
+              #{include path=templates.gtmpl}#{/include}
         </div>
       </div>
     </div>

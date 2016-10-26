@@ -47,10 +47,7 @@ public class StatisticsRestService implements ResourceContainer {
         String [] queries = hibernateStatistics.getStatistics().getQueries();
         double maxQueryPerformance=0;
 
-        for (String query : queries) {
-            QueryStatistics queryStatistics = hibernateStatistics.getStatistics().getQueryStatistics(query);
-            maxQueryPerformance = Math.max(maxQueryPerformance, StatisticsUtils.toQueryPerformance(queryStatistics));
-        }
+        maxQueryPerformance = getMaxQueryPerformance(hibernateStatistics, queries, maxQueryPerformance);
         try {
 
             for (String query : queries) {
@@ -72,6 +69,7 @@ public class StatisticsRestService implements ResourceContainer {
         }
         return Response.ok(jsonQueriesGlobal.toString(), MediaType.APPLICATION_JSON).build();
     }
+
 
     /**
      * Rest service to load all entities statistics.
@@ -206,5 +204,19 @@ public class StatisticsRestService implements ResourceContainer {
         return Response.ok(jsonCachesGlobal.toString(), MediaType.APPLICATION_JSON).build();
     }
 
+    /**
+     * Return maxQueryPerformance
+     * @param hibernateStatistics
+     * @param queries
+     * @param maxQueryPerformance
+     * @return
+     */
+    private double getMaxQueryPerformance(SessionFactoryImplementor hibernateStatistics, String[] queries, double maxQueryPerformance) {
+        for (String query : queries) {
+            QueryStatistics queryStatistics = hibernateStatistics.getStatistics().getQueryStatistics(query);
+            maxQueryPerformance = Math.max(maxQueryPerformance, StatisticsUtils.toQueryPerformance(queryStatistics));
+        }
+        return maxQueryPerformance;
+    }
 
 }

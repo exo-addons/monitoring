@@ -1,8 +1,7 @@
-<table id="applicationsTable" class="display nowrap" cellspacing="0" width="100%">
+<table id="templatesTable" class="display nowrap" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th>Portlet Name</th>
-                <th>Phase</th>
+                <th>Template Name</th>
                 <th>Max Time</th>
                 <th>Min Time</th>
                 <th>Average Time</th>
@@ -11,7 +10,6 @@
         </thead>
 <tbody>
                      <tr>
-                          <td></td>
                           <td></td>
                           <td></td>
                           <td></td>

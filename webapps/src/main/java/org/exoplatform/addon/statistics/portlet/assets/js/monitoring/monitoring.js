@@ -7,6 +7,7 @@ loadEntitiesStatistics();
 loadCachesStatistics();
 loadCollectionsStatistics();
 loadApplicationsStatistics();
+loadTemplatesStatistics();
 });
 } );
 
@@ -80,18 +81,27 @@ var cachesStatisticsTable=
                     { "mDataProp": "Name" },
                     { "mDataProp": "HitCount" },
                     { "mDataProp": "MissCount" },
+                    { "mDataProp": "HitRatio" },
+                    { "mDataProp": "MissRatio" },
                     { "mDataProp": "Capacity" },
                     { "mDataProp": "Size" },
                     { "mDataProp": "TimeToLive" }
                   ] ,
     "columnDefs": [
 
-                     { "width": "60%", "targets": 0 },
-                     { "width": "8%", "targets": 1 },
-                     { "width": "8%", "targets": 2 },
-                     { "width": "8%", "targets": 3 },
-                     { "width": "8%", "targets": 4 },
-                     { "width": "8%", "targets": 5 }
+                     { "width": "30%", "targets": 0 },
+                     { "width": "10%", "targets": 1 },
+                     { "width": "10%", "targets": 2 },
+                     { "width": "10%", "targets": 3 ,render: function ( data, type, row ) {
+                                                         return row.MissCount+row.HitCount==0? 0.0 + " %" : ((row.HitCount/(row.MissCount+row.HitCount)) * 100).toFixed(0) + " %";
+                                                           }},
+                     { "width": "10%", "targets": 4,render: function ( data, type, row ) {
+                                                          return row.MissCount+row.HitCount==0? 0.0 + " %" : ((row.MissCount/(row.MissCount+row.HitCount)) * 100).toFixed(0) + " %";
+                                                           }},
+                     { "width": "10%", "targets": 5 },
+                     { "width": "10%", "targets": 6 },
+                     { "width": "10%", "targets": 7 }
+
                  ]
                                            });
 setInterval( function () {
@@ -138,6 +148,7 @@ var applicationsStatisticsTable=
     "sAjaxSource": "/rest/statistics/application/all/",
     "aoColumns": [
                     { "mDataProp": "name" },
+                    { "mDataProp": "name" },
                     { "mDataProp": "maxTime" },
                     { "mDataProp": "minTime" },
                     { "mDataProp": "averageTime" },
@@ -145,15 +156,18 @@ var applicationsStatisticsTable=
                   ] ,
     "columnDefs": [
 
-                     { "width": "60%", "targets": 0,render: function ( data, type, row ) {
+                     { "width": "50%", "targets": 0,render: function ( data, type, row ) {
                                                          return data.substring(0,data.indexOf('/'));
                                                              }},
-                     { "width": "10%", "targets": 1 },
+                     { "width": "10%", "targets": 1,render: function ( data, type, row ) {
+                                                         return data.substring(data.indexOf('/')+1);
+                                                            }},
                      { "width": "10%", "targets": 2 },
-                     { "width": "10%", "targets": 3,render: function ( data, type, row ) {
-                                                        return parseFloat(data).toFixed(2);
+                     { "width": "10%", "targets": 3 },
+                     { "width": "10%", "targets": 4,render: function ( data, type, row ) {
+                                                        return parseFloat(data).toFixed(0);
                                                      }  },
-                     { "width": "10%", "targets": 4 }
+                     { "width": "10%", "targets": 5 }
                  ]
                                            });
 setInterval( function () {
@@ -161,4 +175,69 @@ setInterval( function () {
 }, 6000 );
 }
 
+function loadTemplatesStatistics(){
+var templatesStatisticsTable=
+ jQuery('#templatesTable').DataTable( {
+    "bProcessing": false,
+    "bServerSide": false,
+    "sAjaxSource": "/rest/statistics/template/all/",
+    "aoColumns": [
+                    { "mDataProp": "name" },
+                    { "mDataProp": "maxTime" },
+                    { "mDataProp": "minTime" },
+                    { "mDataProp": "averageTime" },
+                    { "mDataProp": "execution" }
+                  ] ,
+    "columnDefs": [
 
+                     { "width": "60%", "targets": 0},
+                     { "width": "10%", "targets": 1 },
+                     { "width": "10%", "targets": 2 },
+                     { "width": "10%", "targets": 3,render: function ( data, type, row ) {
+                                                        return parseFloat(data).toFixed(0);
+                                                     }  },
+                     { "width": "10%", "targets": 4 }
+                 ]
+                                           });
+setInterval( function () {
+    templatesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
+}, 6000 );
+}
+
+jQuery(function () {
+   jQuery('#statisticsContainer').highcharts({
+        title: {
+            text: 'Real Time Queries Performance',
+            x: -20 //center
+        },
+
+        xAxis: {
+                 type: 'datetime',
+                       labels: {
+                           formatter: function() {
+                               return Highcharts.dateFormat('%a %d %b', this.value);
+                           }
+                       }
+           },
+        yAxis: {
+            title: {
+                text: 'Temperature (°C)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '°C'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: []
+    });
+});
