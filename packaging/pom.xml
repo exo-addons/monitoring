@@ -13,14 +13,12 @@
     <dependency>
       <groupId>org.exoplatform.addons.monitoring</groupId>
       <artifactId>monitoring-webapps</artifactId>
-      <version>1.0.x-SNAPSHOT</version>
       <type>war</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.addons.monitoring</groupId>
       <artifactId>monitoring-services</artifactId>
-      <version>1.0.x-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
