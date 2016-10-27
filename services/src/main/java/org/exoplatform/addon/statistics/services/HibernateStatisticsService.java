@@ -59,7 +59,12 @@ public class HibernateStatisticsService extends EntityManagerService implements 
     public void stop() {
 
     }
-    public SessionFactoryImplementor generateStatistics( ){
+
+    /**
+     * Return the session factory
+     * @return
+     */
+    public SessionFactoryImplementor getSessionFactory( ){
        return sessionFactory;
 
     }

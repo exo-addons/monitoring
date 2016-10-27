@@ -28,7 +28,14 @@
     </component>
 
     <component>
+        <key>org.exoplatform.addon.statistics.services.StatisticsDataStorage</key>
+        <type>org.exoplatform.addon.statistics.services.impl.StatisticsDataStorageImpl</type>
+    </component>
+
+    <component>
         <type>org.exoplatform.addon.statistics.services.StatisticsRestService</type>
     </component>
+
+
 
 </configuration>

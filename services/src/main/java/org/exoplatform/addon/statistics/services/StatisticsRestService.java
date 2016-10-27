@@ -1,5 +1,6 @@
 package org.exoplatform.addon.statistics.services;
 
+import org.exoplatform.addon.statistics.services.impl.StatisticsDataStorageImpl;
 import org.exoplatform.addon.statistics.util.StatisticsUtils;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.rest.resource.ResourceContainer;
@@ -41,18 +42,18 @@ public class StatisticsRestService implements ResourceContainer {
     @Produces({MediaType.APPLICATION_JSON})
     public Response loadQueriesStatistics()  throws  Exception{
         HibernateStatisticsService hibernateStatisticsService=PortalContainer.getInstance().getComponentInstanceOfType(HibernateStatisticsService.class);
-        SessionFactoryImplementor hibernateStatistics = hibernateStatisticsService.generateStatistics();
+        SessionFactoryImplementor sessionFactory = hibernateStatisticsService.getSessionFactory();
         JSONArray jsonQueries = new JSONArray();
         JSONObject jsonQueriesGlobal = new JSONObject();
-        String [] queries = hibernateStatistics.getStatistics().getQueries();
+        String [] queries = sessionFactory.getStatistics().getQueries();
         double maxQueryPerformance=0;
 
-        maxQueryPerformance = getMaxQueryPerformance(hibernateStatistics, queries, maxQueryPerformance);
+        maxQueryPerformance = getMaxQueryPerformance(sessionFactory, queries, maxQueryPerformance);
         try {
 
             for (String query : queries) {
                 JSONObject jsonObject = new JSONObject();
-                QueryStatistics queryStatistics = hibernateStatistics.getStatistics().getQueryStatistics(query);
+                QueryStatistics queryStatistics = sessionFactory.getStatistics().getQueryStatistics(query);
 
                 jsonObject.put("Performance",new DecimalFormat("0.##").format(100*StatisticsUtils.performanceTableCell(maxQueryPerformance, Math.max(0D, maxQueryPerformance - StatisticsUtils.toQueryPerformance(queryStatistics))))+" %");
                 jsonObject.put("DBTime",StatisticsUtils.toTotalAverageTime(queryStatistics)==0?"0.000 s":new DecimalFormat("0.###").format(StatisticsUtils.toTotalAverageTime(queryStatistics) / 1000D) + " s");
@@ -81,7 +82,7 @@ public class StatisticsRestService implements ResourceContainer {
     @Produces({MediaType.APPLICATION_JSON})
     public Response loadEntitiesStatistics()  throws  Exception{
         HibernateStatisticsService hibernateStatisticsService=PortalContainer.getInstance().getComponentInstanceOfType(HibernateStatisticsService.class);
-        SessionFactoryImplementor hibernateStatistics = hibernateStatisticsService.generateStatistics();
+        SessionFactoryImplementor hibernateStatistics = hibernateStatisticsService.getSessionFactory();
         JSONArray jsonEntities = new JSONArray();
         JSONObject jsonEntitiesGlobal = new JSONObject();
         String[] entitiesStatistics = hibernateStatistics.getStatistics().getEntityNames();
@@ -128,7 +129,7 @@ public class StatisticsRestService implements ResourceContainer {
     @Produces({MediaType.APPLICATION_JSON})
     public Response loadCollectionsStatistics()  throws  Exception{
         HibernateStatisticsService hibernateStatisticsService=PortalContainer.getInstance().getComponentInstanceOfType(HibernateStatisticsService.class);
-        SessionFactoryImplementor hibernateStatistics = hibernateStatisticsService.generateStatistics();
+        SessionFactoryImplementor hibernateStatistics = hibernateStatisticsService.getSessionFactory();
         JSONArray jsonCollections = new JSONArray();
         JSONObject jsonCollectionsGlobal = new JSONObject();
         String [] collectionsStatistics = hibernateStatistics.getStatistics().getCollectionRoleNames();
@@ -206,17 +207,54 @@ public class StatisticsRestService implements ResourceContainer {
 
     /**
      * Return maxQueryPerformance
-     * @param hibernateStatistics
+     * @param sessionFactory
      * @param queries
      * @param maxQueryPerformance
      * @return
      */
-    private double getMaxQueryPerformance(SessionFactoryImplementor hibernateStatistics, String[] queries, double maxQueryPerformance) {
+    private double getMaxQueryPerformance(SessionFactoryImplementor sessionFactory, String[] queries, double maxQueryPerformance) {
         for (String query : queries) {
-            QueryStatistics queryStatistics = hibernateStatistics.getStatistics().getQueryStatistics(query);
+            QueryStatistics queryStatistics = sessionFactory.getStatistics().getQueryStatistics(query);
             maxQueryPerformance = Math.max(maxQueryPerformance, StatisticsUtils.toQueryPerformance(queryStatistics));
         }
         return maxQueryPerformance;
+    }
+
+    /**
+     * Rest service to load all social and wiki data statistics
+     * @return
+     * @throws Exception
+     */
+    @GET
+    @Path("applicationdata")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response loadSocialStatistics()  throws  Exception{
+        StatisticsDataStorageImpl statisticsDataStorage=PortalContainer.getInstance().getComponentInstanceOfType(StatisticsDataStorageImpl.class);
+        JSONObject jsonObject = new JSONObject();
+        try {
+
+                long identitiesCount=statisticsDataStorage.getIdentitiesCount();
+                long spacesCount=statisticsDataStorage.getSpacesCount();
+                long activitiesCount=statisticsDataStorage.getActivitiesCount();
+                long connectionsCount=statisticsDataStorage.getConnectionsCount();
+                long spaceMemberCount=statisticsDataStorage.getSpaceMemberCount();
+                long pagesCount=statisticsDataStorage.getPagesCount();
+                long templatesCount=statisticsDataStorage.getTemplatesCount();
+                long attachmentCount=statisticsDataStorage.getPageAttachmentCount();
+                jsonObject.put("identitiesCount", identitiesCount);
+                jsonObject.put("spacesCount", spacesCount);
+                jsonObject.put("activitiesCount", activitiesCount);
+                jsonObject.put("connectionsCount", connectionsCount);
+                jsonObject.put("spaceMemberCount", spaceMemberCount);
+                jsonObject.put("pagesCount", pagesCount);
+                jsonObject.put("templatesCount", templatesCount);
+                jsonObject.put("attachmentCount", attachmentCount);
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return Response.ok(jsonObject.toString(), MediaType.APPLICATION_JSON).build();
     }
 
 }

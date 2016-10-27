@@ -52,6 +52,10 @@ public class MonitoringController {
     @Path("templates.gtmpl")
     Template templates;
 
+    @Inject
+    @Path("dataStorage.gtmpl")
+    Template dataStorage;
+
     @View
     public Response.Content index() throws  Exception{
 

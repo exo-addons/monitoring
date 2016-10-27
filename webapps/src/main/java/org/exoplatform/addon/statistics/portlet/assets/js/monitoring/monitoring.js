@@ -7,7 +7,7 @@ loadEntitiesStatistics();
 loadCachesStatistics();
 loadCollectionsStatistics();
 loadApplicationsStatistics();
-loadTemplatesStatistics();
+loadDataStorage();
 });
 } );
 
@@ -241,3 +241,21 @@ jQuery(function () {
         series: []
     });
 });
+function loadDataStorage(){
+jQuery.getJSON('/rest/private/exo-statistics/applicationdata', function(data)
+				{
+jQuery("#displaySocialData ul").html("");
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Activities :'+ '<span>'+data.activitiesCount+'</span>'+'<p/>'+'</li>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Spaces :'+ '<span>'+data.spacesCount+'</span>'+'<p/>'+'</li>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Identities :'+ '<span>'+data.identitiesCount+'</span>'+'<p/>'+'</li>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Connections :'+ '<span>'+data.connectionsCount+'</span>'+'<p/>'+'</li>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Pages :'+ '<span>'+data.pagesCount+'</span>'+'<p/>'+'</li>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Templates :'+ '<span>'+data.templatesCount+'</span>'+'<p/>'+'</li>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Attachements :'+ '<span>'+data.attachmentCount+'</span>'+'<p/>'+'</li>' );
+
+
+					});
+}
+
+
+

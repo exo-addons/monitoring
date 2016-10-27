@@ -12,6 +12,7 @@
                 <li><a href="#caches" aria-controls="#caches" role="tab" data-toggle="tab">Caches</a></li>
                 <li><a href="#applications" aria-controls="#applications" role="tab" data-toggle="tab">Applications</a></li>
                 <li><a href="#templates" aria-controls="#templates" role="tab" data-toggle="tab">Templates</a></li>
+                <li><a href="#dataStorage" aria-controls="#dataStorage" role="tab" data-toggle="tab">Social & Wiki Data</a></li>
             </ul>
           </div>
         </div>
@@ -40,6 +41,9 @@
         <div role="tabpanel" class="tab-pane" id="templates">
               #{include path=templates.gtmpl}#{/include}
         </div>
+         <div role="tabpanel" class="tab-pane" id="dataStorage">
+               #{include path=dataStorage.gtmpl}#{/include}
+         </div>
       </div>
     </div>
   </div>
