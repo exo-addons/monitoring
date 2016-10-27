@@ -7,6 +7,7 @@ loadEntitiesStatistics();
 loadCachesStatistics();
 loadCollectionsStatistics();
 loadApplicationsStatistics();
+loadTemplatesStatistics();
 loadDataStorage();
 });
 } );
