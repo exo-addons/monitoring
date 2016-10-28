@@ -1,5 +1,5 @@
 $.noConflict();
-require( ["SHARED/bootstrap", "SHARED/bts_tab"], function ( $ )
+require( ["SHARED/bts_tab","SHARED/bts_tooltip"], function ( $ )
 {
 jQuery(document).ready(function() {
 loadQueriesStatistics();
@@ -9,7 +9,6 @@ loadCollectionsStatistics();
 loadApplicationsStatistics();
 loadTemplatesStatistics();
 loadDataStorage();
-createCharData();
 });
 } );
 
@@ -29,7 +28,7 @@ var queriesStatisticsTable=
               ],
     "columnDefs": [
                     { "width": "64%", "targets": 0},
-                    { "width": "9%", "targets": 1 },
+                    { "width": "9%", "targets": 1},
                     { "width": "9%", "targets": 2 },
                     { "width": "9%", "targets": 3 },
                     { "width": "9%", "targets": 4 }
@@ -38,7 +37,7 @@ var queriesStatisticsTable=
                                            });
 setInterval( function () {
     queriesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
-}, 6000 );
+}, 10000 );
 }
 
 function loadEntitiesStatistics(){
@@ -70,7 +69,7 @@ var entitiesStatisticsTable=
 
 setInterval( function () {
     entitiesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
-}, 6000 )
+}, 10000 )
 }
 
 function loadCachesStatistics(){
@@ -108,7 +107,7 @@ var cachesStatisticsTable=
                                            });
 setInterval( function () {
     cachesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
-}, 6000 );
+}, 10000 );
 }
 
 function loadCollectionsStatistics(){
@@ -139,7 +138,7 @@ var collectionsStatisticsTable=
                                            });
 setInterval( function () {
     collectionsStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
-}, 6000 );
+}, 10000 );
 }
 
 function loadApplicationsStatistics(){
@@ -158,23 +157,23 @@ var applicationsStatisticsTable=
                   ] ,
     "columnDefs": [
 
-                     { "width": "50%", "targets": 0,render: function ( data, type, row ) {
+                     { "width": "40%", "targets": 0,render: function ( data, type, row ) {
                                                          return data.substring(0,data.indexOf('/'));
                                                              }},
-                     { "width": "10%", "targets": 1,render: function ( data, type, row ) {
+                     { "width": "12%", "targets": 1,render: function ( data, type, row ) {
                                                          return data.substring(data.indexOf('/')+1);
                                                             }},
-                     { "width": "10%", "targets": 2 },
-                     { "width": "10%", "targets": 3 },
-                     { "width": "10%", "targets": 4,render: function ( data, type, row ) {
+                     { "width": "12%", "targets": 2 },
+                     { "width": "12%", "targets": 3 },
+                     { "width": "12%", "targets": 4,render: function ( data, type, row ) {
                                                         return parseFloat(data).toFixed(0);
                                                      }  },
-                     { "width": "10%", "targets": 5 }
+                     { "width": "12%", "targets": 5 }
                  ]
                                            });
 setInterval( function () {
     applicationsStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
-}, 6000 );
+}, 10000 );
 }
 
 function loadTemplatesStatistics(){
@@ -203,7 +202,7 @@ var templatesStatisticsTable=
                                            });
 setInterval( function () {
     templatesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
-}, 6000 );
+}, 10000 );
 }
 
 jQuery(function () {
@@ -244,6 +243,7 @@ jQuery(function () {
     });
 });
 function loadDataStorage(){
+ var dataPoints = [];
 jQuery.getJSON('/rest/private/exo-statistics/applicationdata/', function(data)
 				{
 jQuery("#displaySocialData ul").html("");
@@ -254,26 +254,20 @@ jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Conne
 jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Pages :'+ '<span>'+data.pagesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
 jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Templates :'+ '<span>'+data.templatesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
 jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Attachements :'+ '<span>'+data.attachmentCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-});
-}
-
-
-
-function createCharData()
-{
- var dataPoints = [];
-jQuery.getJSON('/rest/private/exo-statistics/applicationdata/', function(data) {
-
-    var chart = new CanvasJS.Chart("chartContainer",{
+  var chart = new CanvasJS.Chart("chartContainer",{
     height:300,
+    width: 400,
+
         title:{
             text:"Applications Statistics",
-            fontSize: 15
+            fontSize: 15,
+            horizontalAlign: "center",
 
         },
         legend: {
                 horizontalAlign: "right",
-                verticalAlign: "center"
+                verticalAlign: "center",
+
               },
         data: [{
         type: "pie",
@@ -293,4 +287,6 @@ jQuery.getJSON('/rest/private/exo-statistics/applicationdata/', function(data) {
     chart.render();
 });
 }
+
+
 

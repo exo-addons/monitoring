@@ -2,4 +2,7 @@
 <div id="displaySocialData" style="float: left; width: 50%;">
                        <ul></ul>
 </div>
-<div id="chartContainer" style="float: left; width: 50%; "/></div>
+<div id="chartContainer" style="float: left; width: 50%; "/>
+<button class="pull-right btn btn-primary hidden-phone DisableButton" id="reload" type="button">Reload</button>
+</div>
+

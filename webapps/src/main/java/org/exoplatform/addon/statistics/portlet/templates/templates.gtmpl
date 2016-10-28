@@ -2,9 +2,9 @@
         <thead>
             <tr>
                 <th>Template Name</th>
-                <th>Max Time</th>
-                <th>Min Time</th>
-                <th>Average Time</th>
+                <th>Max Time (ms)</th>
+                <th>Min Time (ms)</th>
+                <th>Average Time (ms)</th>
                 <th>Execution Count</th>
             </tr>
         </thead>
