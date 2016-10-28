@@ -45,16 +45,16 @@ public class MonitoringController {
     Template cache;
 
     @Inject
-    @Path("applications.gtmpl")
-    Template applications;
+    @Path("portlets.gtmpl")
+    Template portlets;
 
     @Inject
     @Path("templates.gtmpl")
     Template templates;
 
     @Inject
-    @Path("dataStorage.gtmpl")
-    Template dataStorage;
+    @Path("applications.gtmpl")
+    Template applications;
 
     @View
     public Response.Content index() throws  Exception{

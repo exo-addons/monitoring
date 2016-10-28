@@ -1,23 +1,5 @@
-<table id="applicationsTable" class="display nowrap" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th>Portlet Name</th>
-                <th>Phase</th>
-                <th>Max Time</th>
-                <th>Min Time</th>
-                <th>Average Time</th>
-                <th>Execution Count</th>
-            </tr>
-        </thead>
-<tbody>
-                     <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-
-                     </tr>
- </tbody>
-</table>
+<div id="content" style="margin: 0; width: 100%;">
+<div id="displaySocialData" style="float: left; width: 50%;">
+                       <ul></ul>
+</div>
+<div id="chartContainer" style="float: left; width: 50%; "/></div>

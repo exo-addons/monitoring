@@ -9,6 +9,7 @@ loadCollectionsStatistics();
 loadApplicationsStatistics();
 loadTemplatesStatistics();
 loadDataStorage();
+createCharData();
 });
 } );
 
@@ -243,20 +244,53 @@ jQuery(function () {
     });
 });
 function loadDataStorage(){
-jQuery.getJSON('/rest/private/exo-statistics/applicationdata', function(data)
+jQuery.getJSON('/rest/private/exo-statistics/applicationdata/', function(data)
 				{
 jQuery("#displaySocialData ul").html("");
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Activities :'+ '<span>'+data.activitiesCount+'</span>'+'<p/>'+'</li>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Spaces :'+ '<span>'+data.spacesCount+'</span>'+'<p/>'+'</li>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Identities :'+ '<span>'+data.identitiesCount+'</span>'+'<p/>'+'</li>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Connections :'+ '<span>'+data.connectionsCount+'</span>'+'<p/>'+'</li>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Pages :'+ '<span>'+data.pagesCount+'</span>'+'<p/>'+'</li>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Templates :'+ '<span>'+data.templatesCount+'</span>'+'<p/>'+'</li>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Attachements :'+ '<span>'+data.attachmentCount+'</span>'+'<p/>'+'</li>' );
-
-
-					});
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Activities :'+ '<span>'+data.activitiesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Spaces :'+ '<span>'+data.spacesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Identities :'+ '<span>'+data.identitiesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Connections :'+ '<span>'+data.connectionsCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Pages :'+ '<span>'+data.pagesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Templates :'+ '<span>'+data.templatesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Attachements :'+ '<span>'+data.attachmentCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+});
 }
 
 
+
+function createCharData()
+{
+ var dataPoints = [];
+jQuery.getJSON('/rest/private/exo-statistics/applicationdata/', function(data) {
+
+    var chart = new CanvasJS.Chart("chartContainer",{
+    height:300,
+        title:{
+            text:"Applications Statistics",
+            fontSize: 15
+
+        },
+        legend: {
+                horizontalAlign: "right",
+                verticalAlign: "center"
+              },
+        data: [{
+        type: "pie",
+        showInLegend: true,
+            dataPoints: [
+                  { legendText: "Activities", y: data.activitiesCount },
+                  { legendText: "Spaces", y: data.spacesCount },
+                  { legendText: "Identities", y: data.identitiesCount },
+                  { legendText: "Connections", y: data.connectionsCount },
+                  { legendText: "Pages", y: data.pagesCount },
+                  { legendText: "Templates", y: data.templatesCount },
+                  { legendText: "Attachments", y: data.attachmentCount }
+                  ]
+
+        }]
+    });
+    chart.render();
+});
+}
 

@@ -8,7 +8,8 @@
         @Script(id = "datatables-buttons", value = "js/datatable/dataTables.buttons.js",depends={"jquery","datatables"}),
         @Script(id = "highchart-js", value = "js/graphs/highcharts.js",depends = "jquery"),
         @Script(id = "exporting-js", value = "js/graphs/exporting.js",depends = "highchart-js"),
-        @Script(id = "hibernate-statistics-js", value = "js/monitoring/monitoring.js",depends ={"datatables-buttons","highchart-js","exporting-js"})
+        @Script(id = "canvas-js", value = "js/graphs/canvasjs.min.js",depends = "jquery"),
+        @Script(id = "hibernate-statistics-js", value = "js/monitoring/monitoring.js",depends ={"datatables-buttons","highchart-js","exporting-js","canvas-js"})
 })
 
 @Stylesheets({

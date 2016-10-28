@@ -41,4 +41,6 @@ table.dataTable.nowrap th.entitywidth, table.dataTable.nowrap td.entitywidth{
 table.dataTable.nowrap th.percentage, table.dataTable.nowrap td.percentage{
     width: 110px!important;
 }
-
+.canvasjs-chart-credit {
+   display: none;
+}
