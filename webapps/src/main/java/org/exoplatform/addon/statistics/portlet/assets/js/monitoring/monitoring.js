@@ -3,12 +3,7 @@ require( ["SHARED/bts_tab","SHARED/bts_tooltip"], function ( $ )
 {
 jQuery(document).ready(function() {
 loadQueriesStatistics();
-loadEntitiesStatistics();
-loadCachesStatistics();
-loadCollectionsStatistics();
-loadApplicationsStatistics();
-loadTemplatesStatistics();
-loadDataStorage();
+
 });
 } );
 
@@ -17,6 +12,20 @@ var queriesStatisticsTable=
    jQuery('#queriesTable').DataTable( {
     "bProcessing": false,
     "bServerSide": false,
+           dom: 'Bfrtip',
+                    buttons: [
+                      {
+                        extend: 'copy'
+                      },
+                      {
+                        extend: 'csv',
+                        filename: 'Queries Statistics'
+                       },
+                      {
+                       extend: 'excel',
+                       filename: 'Queries Statistics'
+                     }
+                     ],
     "sAjaxSource": "/rest/private/exo-statistics/queries/",
     "aoColumns": [
                 { "mData": "query" },
@@ -41,10 +50,25 @@ setInterval( function () {
 }
 
 function loadEntitiesStatistics(){
+
 var entitiesStatisticsTable=
  jQuery('#entitiesTable').DataTable( {
     "bProcessing": false,
     "bServerSide": false,
+    dom: 'Bfrtip',
+    buttons: [
+      {
+        extend: 'copy'
+      },
+      {
+        extend: 'csv',
+        filename: 'Entities Statistics'
+       },
+      {
+       extend: 'excel',
+       filename: 'Entities Statistics'
+     }
+     ],
     "sAjaxSource": "/rest/private/exo-statistics/entities/",
     "aoColumns": [
                 { "mData": "entity" },
@@ -77,6 +101,20 @@ var cachesStatisticsTable=
  jQuery('#cachesTable').DataTable( {
     "bProcessing": false,
     "bServerSide": false,
+        dom: 'Bfrtip',
+        buttons: [
+          {
+            extend: 'copy'
+          },
+          {
+            extend: 'csv',
+            filename: 'Caches Statistics'
+           },
+          {
+           extend: 'excel',
+           filename: 'Caches Statistics'
+         }
+         ],
     "sAjaxSource": "/rest/private/exo-statistics/caches/",
     "aoColumns": [
                     { "mDataProp": "Name" },
@@ -115,6 +153,20 @@ var collectionsStatisticsTable=
  jQuery('#collectionsTable').DataTable( {
     "bProcessing": false,
     "bServerSide": false,
+            dom: 'Bfrtip',
+            buttons: [
+              {
+                extend: 'copy'
+              },
+              {
+                extend: 'csv',
+                filename: 'Collections Statistics'
+               },
+              {
+               extend: 'excel',
+               filename: 'Collections Statistics'
+             }
+             ],
     "sAjaxSource": "/rest/private/exo-statistics/collections/",
     "aoColumns": [
                 { "mData": "collection" },
@@ -141,11 +193,25 @@ setInterval( function () {
 }, 10000 );
 }
 
-function loadApplicationsStatistics(){
+function loadPortletsStatistics(){
 var applicationsStatisticsTable=
  jQuery('#applicationsTable').DataTable( {
     "bProcessing": false,
     "bServerSide": false,
+             dom: 'Bfrtip',
+                buttons: [
+                  {
+                    extend: 'copy'
+                  },
+                  {
+                    extend: 'csv',
+                    filename: 'Portlets Statistics'
+                   },
+                  {
+                   extend: 'excel',
+                   filename: 'Portlets Statistics'
+                 }
+                 ],
     "sAjaxSource": "/rest/statistics/application/all/",
     "aoColumns": [
                     { "mDataProp": "name" },
@@ -179,8 +245,23 @@ setInterval( function () {
 function loadTemplatesStatistics(){
 var templatesStatisticsTable=
  jQuery('#templatesTable').DataTable( {
+
     "bProcessing": false,
     "bServerSide": false,
+             dom: 'Bfrtip',
+                    buttons: [
+                      {
+                        extend: 'copy'
+                      },
+                      {
+                        extend: 'csv',
+                        filename: 'Templates Statistics'
+                       },
+                      {
+                       extend: 'excel',
+                       filename: 'Templates Statistics'
+                     }
+                     ],
     "sAjaxSource": "/rest/statistics/template/all/",
     "aoColumns": [
                     { "mDataProp": "name" },
@@ -202,6 +283,7 @@ var templatesStatisticsTable=
                                            });
 setInterval( function () {
     templatesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
+
 }, 10000 );
 }
 
@@ -242,7 +324,7 @@ jQuery(function () {
         series: []
     });
 });
-function loadDataStorage(){
+function loadApplicationsStatistics(){
  var dataPoints = [];
 jQuery.getJSON('/rest/private/exo-statistics/applicationdata/', function(data)
 				{

@@ -7,12 +7,12 @@
           <div class="container">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#queries" aria-controls="#queries" role="tab" data-toggle="tab">Queries</a></li>
-                <li><a href="#collections" aria-controls="#collections" role="tab" data-toggle="tab">Collections</a></li>
-                <li><a href="#entities" aria-controls="#entities" role="tab" data-toggle="tab">Entities</a></li>
-                <li><a href="#caches" aria-controls="#caches" role="tab" data-toggle="tab">Caches</a></li>
-                <li><a href="#portlets" aria-controls="#portlets" role="tab" data-toggle="tab">Portlets</a></li>
-                <li><a href="#templates" aria-controls="#templates" role="tab" data-toggle="tab">Templates</a></li>
-                <li><a href="#applications" aria-controls="#applications" role="tab" data-toggle="tab">Applications Data</a></li>
+                <li><a href="#collections" aria-controls="#collections" role="tab" data-toggle="tab" onClick="loadCollectionsStatistics();">Collections</a></li>
+                <li><a href="#entities" aria-controls="#entities" role="tab" data-toggle="tab" onClick="loadEntitiesStatistics();">Entities</a></li>
+                <li><a href="#caches" aria-controls="#caches" role="tab" data-toggle="tab" onClick="loadCachesStatistics();">Caches</a></li>
+                <li><a href="#portlets" aria-controls="#portlets" role="tab" data-toggle="tab" onClick="loadPortletsStatistics();">Portlets</a></li>
+                <li><a href="#templates" aria-controls="#templates" role="tab" data-toggle="tab" onClick="loadTemplatesStatistics();">Templates</a></li>
+                <li><a href="#applications" aria-controls="#applications" role="tab" data-toggle="tab" onClick="loadApplicationsStatistics();">Applications Data</a></li>
             </ul>
           </div>
         </div>
