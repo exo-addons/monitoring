@@ -28,11 +28,15 @@ table{
 }
 table.dataTable.nowrap th, table.dataTable.nowrap td {
     width: 85px!important;
+    text-align: center;
 }
 table.dataTable.nowrap th:nth-child(1), table.dataTable.nowrap td:nth-child(1){
     width: 40%!important;
     overflow: hidden;
-    text-overflow: ellipsis
+    text-overflow: ellipsis;
+}
+table.dataTable.nowrap td:nth-child(1){
+    text-align: left!important;
 }
 table.dataTable.nowrap th.entitywidth, table.dataTable.nowrap td.entitywidth{
     width: 110px!important;
@@ -44,3 +48,5 @@ table.dataTable.nowrap th.percentage, table.dataTable.nowrap td.percentage{
 .canvasjs-chart-credit {
    display: none;
 }
+
+ }
