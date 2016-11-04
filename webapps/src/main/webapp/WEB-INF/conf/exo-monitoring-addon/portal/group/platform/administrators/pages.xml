@@ -24,7 +24,7 @@
 <page-set>
    <page>
       <name>statistics</name>
-      <title>Live Statistics</title>
+      <title>Live Monitoring</title>
       <access-permissions>*:/platform/administrators</access-permissions>
       <edit-permission>*:/platform/administrators</edit-permission>
       <show-max-window>false</show-max-window>

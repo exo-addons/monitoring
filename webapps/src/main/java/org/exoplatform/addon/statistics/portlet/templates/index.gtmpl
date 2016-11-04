@@ -13,6 +13,7 @@
                 <li><a href="#portlets" aria-controls="#portlets" role="tab" data-toggle="tab" onClick="loadPortletsStatistics();">Portlets</a></li>
                 <li><a href="#templates" aria-controls="#templates" role="tab" data-toggle="tab" onClick="loadTemplatesStatistics();">Templates</a></li>
                 <li><a href="#applications" aria-controls="#applications" role="tab" data-toggle="tab" onClick="loadApplicationsStatistics();">Applications Data</a></li>
+                <li><a href="#memory" aria-controls="#memory" role="tab" data-toggle="tab" onClick="loadMemoryStatistics();">Memory</a></li>
             </ul>
           </div>
         </div>
@@ -41,9 +42,12 @@
         <div role="tabpanel" class="tab-pane" id="templates">
               #{include path=templates.gtmpl}#{/include}
         </div>
-         <div role="tabpanel" class="tab-pane" id="applications">
-               #{include path=applications.gtmpl}#{/include}
-         </div>
+        <div role="tabpanel" class="tab-pane" id="applications">
+              #{include path=applications.gtmpl}#{/include}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="memory">
+              #{include path=memory.gtmpl}#{/include}
+        </div>
       </div>
     </div>
   </div>

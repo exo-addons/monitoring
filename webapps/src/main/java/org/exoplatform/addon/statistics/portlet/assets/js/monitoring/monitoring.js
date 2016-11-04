@@ -1,15 +1,15 @@
-$.noConflict();
 require( ["SHARED/bts_tab","SHARED/bts_tooltip"], function ( $ )
 {
-jQuery(document).ready(function() {
+$(document).ready(function() {
 loadQueriesStatistics();
-
 });
 } );
 
 function loadQueriesStatistics(){
-var queriesStatisticsTable=
-   jQuery('#queriesTable').DataTable( {
+  var queriesStatisticsTable=
+
+   $('#queriesTable').DataTable( {
+
     "bProcessing": false,
     "bServerSide": false,
            dom: 'Bfrtip',
@@ -50,9 +50,13 @@ setInterval( function () {
 }
 
 function loadEntitiesStatistics(){
+ if ( typeof entitiesStatisticsTable != "undefined" ) {
+ entitiesStatisticsTable.fnClearTable();
+ entitiesStatisticsTable.fnDestroy();
+ }
+entitiesStatisticsTable=
+ $('#entitiesTable').DataTable( {
 
-var entitiesStatisticsTable=
- jQuery('#entitiesTable').DataTable( {
     "bProcessing": false,
     "bServerSide": false,
     dom: 'Bfrtip',
@@ -97,8 +101,12 @@ setInterval( function () {
 }
 
 function loadCachesStatistics(){
-var cachesStatisticsTable=
- jQuery('#cachesTable').DataTable( {
+ if ( typeof cachesStatisticsTable != "undefined" ) {
+ cachesStatisticsTable.fnClearTable();
+ cachesStatisticsTable.fnDestroy();
+ }
+cachesStatisticsTable=
+ $('#cachesTable').DataTable( {
     "bProcessing": false,
     "bServerSide": false,
         dom: 'Bfrtip',
@@ -149,8 +157,13 @@ setInterval( function () {
 }
 
 function loadCollectionsStatistics(){
-var collectionsStatisticsTable=
- jQuery('#collectionsTable').DataTable( {
+if ( typeof collectionsStatisticsTable != "undefined" ) {
+ collectionsStatisticsTable.fnClearTable();
+ collectionsStatisticsTable.fnDestroy();
+ }
+  collectionsStatisticsTable=
+ $('#collectionsTable').DataTable( {
+
     "bProcessing": false,
     "bServerSide": false,
             dom: 'Bfrtip',
@@ -194,8 +207,13 @@ setInterval( function () {
 }
 
 function loadPortletsStatistics(){
-var applicationsStatisticsTable=
- jQuery('#applicationsTable').DataTable( {
+if ( typeof applicationsStatisticsTable != "undefined" ) {
+ applicationsStatisticsTable.fnClearTable();
+ applicationsStatisticsTable.fnDestroy();
+ }
+ applicationsStatisticsTable=
+ $('#applicationsTable').DataTable( {
+
     "bProcessing": false,
     "bServerSide": false,
              dom: 'Bfrtip',
@@ -243,8 +261,12 @@ setInterval( function () {
 }
 
 function loadTemplatesStatistics(){
-var templatesStatisticsTable=
- jQuery('#templatesTable').DataTable( {
+if ( typeof templatesStatisticsTable != "undefined" ) {
+ templatesStatisticsTable.fnClearTable();
+ templatesStatisticsTable.fnDestroy();
+ }
+  templatesStatisticsTable=
+ $('#templatesTable').DataTable( {
 
     "bProcessing": false,
     "bServerSide": false,
@@ -287,55 +309,18 @@ setInterval( function () {
 }, 10000 );
 }
 
-jQuery(function () {
-   jQuery('#statisticsContainer').highcharts({
-        title: {
-            text: 'Real Time Queries Performance',
-            x: -20 //center
-        },
-
-        xAxis: {
-                 type: 'datetime',
-                       labels: {
-                           formatter: function() {
-                               return Highcharts.dateFormat('%a %d %b', this.value);
-                           }
-                       }
-           },
-        yAxis: {
-            title: {
-                text: 'Temperature (°C)'
-            },
-            plotLines: [{
-                value: 0,
-                width: 1,
-                color: '#808080'
-            }]
-        },
-        tooltip: {
-            valueSuffix: '°C'
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle',
-            borderWidth: 0
-        },
-        series: []
-    });
-});
 function loadApplicationsStatistics(){
  var dataPoints = [];
-jQuery.getJSON('/rest/private/exo-statistics/applicationdata/', function(data)
+$.getJSON('/rest/private/exo-statistics/applicationdata/', function(data)
 				{
-jQuery("#displaySocialData ul").html("");
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Activities :'+ '<span>'+data.activitiesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Spaces :'+ '<span>'+data.spacesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Identities :'+ '<span>'+data.identitiesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Connections :'+ '<span>'+data.connectionsCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Pages :'+ '<span>'+data.pagesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Templates :'+ '<span>'+data.templatesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Attachements :'+ '<span>'+data.attachmentCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+$("#displaySocialData ul").html("");
+$("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Activities :'+ '<span>'+data.activitiesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+$("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Spaces :'+ '<span>'+data.spacesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+$("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Identities :'+ '<span>'+data.identitiesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+$("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Connections :'+ '<span>'+data.connectionsCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+$("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Pages :'+ '<span>'+data.pagesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+$("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Templates :'+ '<span>'+data.templatesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+$("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Attachements :'+ '<span>'+data.attachmentCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
   var chart = new CanvasJS.Chart("chartContainer",{
     height:300,
     width: 400,
@@ -368,7 +353,68 @@ jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki 
     });
     chart.render();
 });
+$("#memoryContent").hide();
+$("#displaySocialData").show();
+$("#chartContainer").show();
 }
 
+function loadMemoryStatistics(){
+$.getJSON('/rest/private/monitoring/memory/', function(data)
+{
+ var dataPoints = [];
+$.each(data, function(i, liste) {
+             $.each(liste, function(key, memory) {
 
+                var free = formatBytes(memory.max - memory.used);
+                var used = formatBytes(memory.used);
+                var total = formatBytes(memory.max);
+                var memoryDiv="#memoryHeapInfos";
+                var chartTitle="";
+                var chartContainer=""
+                $(memoryDiv+key+" ul").html("");
+                $(memoryDiv+key+" ul").append('<li>'+'<p>Free :'+ '<span>'+free+'</span>'+'<p/>'+'</li>'+'<hr width=20%>' );
+                $(memoryDiv+key+" ul").append('<li>'+'<p>Used :'+ '<span>'+used+'</span>'+'<p/>'+'</li>'+'<hr width=20%>' );
+                $(memoryDiv+key+" ul").append('<li>'+'<p>Total :'+ '<span>'+total+'</span>'+'<p/>'+'</li>'+'<hr width=20%>' );
+chartContainer=(key==0)? "memoryHeapChart" : "memoryNonHeapChart";
+chartTitle=(key==0)? "Memory Heap Usage" : "Memory Non-Heap Usage";
+ var memoryHeapChart = new CanvasJS.Chart(chartContainer,{
+    height:148,
+    width: 280,
+  title:{
+            text:chartTitle
+
+        },
+        legend: {
+                horizontalAlign: "right",
+                verticalAlign: "center",
+
+              },
+        data: [{
+        type: "pie",
+        showInLegend: true,
+
+            dataPoints: [
+                  { legendText: "Free", y: ((1-(memory.used/memory.max)) * 100).toFixed(0) },
+                  { legendText: "Used", y: ((memory.used/memory.max) * 100).toFixed(0) }
+                  ]
+
+        }]
+    });
+    memoryHeapChart.render();
+});
+
+});
+});
+$("#displaySocialData").hide();
+$("#chartContainer").hide();
+$("#memoryContent").show();
+setInterval(function(){ loadMemoryStatistics(); }, 10000);
+}
+
+function formatBytes(bytes) {
+    if(bytes < 1024) return bytes + " Bytes";
+    else if(bytes < 1048576) return(bytes / 1024).toFixed(2) + " KB";
+    else if(bytes < 1073741824) return(bytes / 1048576).toFixed(2) + " MB";
+    else return(bytes / 1073741824).toFixed(2) + " GB";
+}
 

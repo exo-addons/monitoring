@@ -18,13 +18,7 @@ import javax.inject.Inject;
 
 
 public class MonitoringController {
-    private static final Log LOGGER = ExoLogger.getLogger(MonitoringController.class);
-    @Inject
-    HibernateStatisticsService hibernateStatisticsService;
-    @Inject
-    StatisticsRestService statisticsRestService;
-    @Inject
-    StatisticsService statisticsService;
+
     @Inject
     @Path("index.gtmpl")
     Template index;
@@ -55,6 +49,10 @@ public class MonitoringController {
     @Inject
     @Path("applications.gtmpl")
     Template applications;
+
+    @Inject
+    @Path("memory.gtmpl")
+    Template memory;
 
     @View
     public Response.Content index() throws  Exception{

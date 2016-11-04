@@ -25,7 +25,7 @@
     <node>
             <uri>administration/statistics</uri>
             <name>statistics</name>
-            <label>Live Statistics</label>
+            <label>Live Monitoring</label>
             <page-reference>group::/platform/administrators::statistics</page-reference>
           </node>
   </page-nodes>

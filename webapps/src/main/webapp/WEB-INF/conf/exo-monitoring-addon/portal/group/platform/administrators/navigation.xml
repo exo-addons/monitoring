@@ -30,7 +30,7 @@
     <node>
       <uri>statistics</uri>
       <name>statistics</name>
-      <label>Live Statistics</label>
+      <label>Live Monitoring</label>
       <page-reference>group::/platform/administrators::statistics</page-reference>
     </node>
 
