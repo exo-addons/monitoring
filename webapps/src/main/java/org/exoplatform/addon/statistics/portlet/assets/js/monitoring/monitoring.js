@@ -1,14 +1,13 @@
+$.noConflict();
 require( ["SHARED/bts_tab","SHARED/bts_tooltip"], function ( $ )
 {
-$(document).ready(function() {
+jQuery(document).ready(function() {
 loadQueriesStatistics();
 });
 } );
 
 function loadQueriesStatistics(){
-  var queriesStatisticsTable=
-
-   $('#queriesTable').DataTable( {
+var queriesStatisticsTable=jQuery('#queriesTable').DataTable( {
 
     "bProcessing": false,
     "bServerSide": false,
@@ -55,7 +54,7 @@ function loadEntitiesStatistics(){
  entitiesStatisticsTable.fnDestroy();
  }
 entitiesStatisticsTable=
- $('#entitiesTable').DataTable( {
+ jQuery('#entitiesTable').DataTable( {
 
     "bProcessing": false,
     "bServerSide": false,
@@ -106,7 +105,7 @@ function loadCachesStatistics(){
  cachesStatisticsTable.fnDestroy();
  }
 cachesStatisticsTable=
- $('#cachesTable').DataTable( {
+ jQuery('#cachesTable').DataTable( {
     "bProcessing": false,
     "bServerSide": false,
         dom: 'Bfrtip',
@@ -162,7 +161,7 @@ if ( typeof collectionsStatisticsTable != "undefined" ) {
  collectionsStatisticsTable.fnDestroy();
  }
   collectionsStatisticsTable=
- $('#collectionsTable').DataTable( {
+ jQuery('#collectionsTable').DataTable( {
 
     "bProcessing": false,
     "bServerSide": false,
@@ -212,7 +211,7 @@ if ( typeof applicationsStatisticsTable != "undefined" ) {
  applicationsStatisticsTable.fnDestroy();
  }
  applicationsStatisticsTable=
- $('#applicationsTable').DataTable( {
+ jQuery('#applicationsTable').DataTable( {
 
     "bProcessing": false,
     "bServerSide": false,
@@ -266,7 +265,7 @@ if ( typeof templatesStatisticsTable != "undefined" ) {
  templatesStatisticsTable.fnDestroy();
  }
   templatesStatisticsTable=
- $('#templatesTable').DataTable( {
+ jQuery('#templatesTable').DataTable( {
 
     "bProcessing": false,
     "bServerSide": false,
@@ -311,16 +310,16 @@ setInterval( function () {
 
 function loadApplicationsStatistics(){
  var dataPoints = [];
-$.getJSON('/rest/private/exo-statistics/applicationdata/', function(data)
+jQuery.getJSON('/rest/private/exo-statistics/applicationdata/', function(data)
 				{
-$("#displaySocialData ul").html("");
-$("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Activities :'+ '<span>'+data.activitiesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-$("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Spaces :'+ '<span>'+data.spacesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-$("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Identities :'+ '<span>'+data.identitiesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-$("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Connections :'+ '<span>'+data.connectionsCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-$("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Pages :'+ '<span>'+data.pagesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-$("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Templates :'+ '<span>'+data.templatesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-$("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Attachements :'+ '<span>'+data.attachmentCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#displaySocialData ul").html("");
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Activities :'+ '<span>'+data.activitiesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Spaces :'+ '<span>'+data.spacesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Identities :'+ '<span>'+data.identitiesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Connections :'+ '<span>'+data.connectionsCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Pages :'+ '<span>'+data.pagesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Templates :'+ '<span>'+data.templatesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Attachements :'+ '<span>'+data.attachmentCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
   var chart = new CanvasJS.Chart("chartContainer",{
     height:300,
     width: 400,
@@ -353,17 +352,17 @@ $("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Attac
     });
     chart.render();
 });
-$("#memoryContent").hide();
-$("#displaySocialData").show();
-$("#chartContainer").show();
+jQuery("#memoryContent").hide();
+jQuery("#displaySocialData").show();
+jQuery("#chartContainer").show();
 }
 
 function loadMemoryStatistics(){
-$.getJSON('/rest/private/monitoring/memory/', function(data)
+jQuery.getJSON('/rest/private/monitoring/memory/', function(data)
 {
  var dataPoints = [];
-$.each(data, function(i, liste) {
-             $.each(liste, function(key, memory) {
+jQuery.each(data, function(i, liste) {
+             jQuery.each(liste, function(key, memory) {
 
                 var free = formatBytes(memory.max - memory.used);
                 var used = formatBytes(memory.used);
@@ -371,10 +370,10 @@ $.each(data, function(i, liste) {
                 var memoryDiv="#memoryHeapInfos";
                 var chartTitle="";
                 var chartContainer=""
-                $(memoryDiv+key+" ul").html("");
-                $(memoryDiv+key+" ul").append('<li>'+'<p>Free :'+ '<span>'+free+'</span>'+'<p/>'+'</li>'+'<hr width=20%>' );
-                $(memoryDiv+key+" ul").append('<li>'+'<p>Used :'+ '<span>'+used+'</span>'+'<p/>'+'</li>'+'<hr width=20%>' );
-                $(memoryDiv+key+" ul").append('<li>'+'<p>Total :'+ '<span>'+total+'</span>'+'<p/>'+'</li>'+'<hr width=20%>' );
+                jQuery(memoryDiv+key+" ul").html("");
+                jQuery(memoryDiv+key+" ul").append('<li>'+'<p>Free :'+ '<span>'+free+'</span>'+'<p/>'+'</li>'+'<hr width=20%>' );
+                jQuery(memoryDiv+key+" ul").append('<li>'+'<p>Used :'+ '<span>'+used+'</span>'+'<p/>'+'</li>'+'<hr width=20%>' );
+                jQuery(memoryDiv+key+" ul").append('<li>'+'<p>Total :'+ '<span>'+total+'</span>'+'<p/>'+'</li>'+'<hr width=20%>' );
 chartContainer=(key==0)? "memoryHeapChart" : "memoryNonHeapChart";
 chartTitle=(key==0)? "Memory Heap Usage" : "Memory Non-Heap Usage";
  var memoryHeapChart = new CanvasJS.Chart(chartContainer,{
@@ -405,9 +404,9 @@ chartTitle=(key==0)? "Memory Heap Usage" : "Memory Non-Heap Usage";
 
 });
 });
-$("#displaySocialData").hide();
-$("#chartContainer").hide();
-$("#memoryContent").show();
+jQuery("#displaySocialData").hide();
+jQuery("#chartContainer").hide();
+jQuery("#memoryContent").show();
 setInterval(function(){ loadMemoryStatistics(); }, 10000);
 }
 
