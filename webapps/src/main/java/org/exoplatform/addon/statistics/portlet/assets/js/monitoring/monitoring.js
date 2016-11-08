@@ -10,7 +10,7 @@ loadQueriesStatistics();
 
 function loadQueriesStatistics(){
 clearInterval(myInterval);
-if ( typeof queriesStatisticsTable != "undefined" ) {
+if ( typeof queriesStatisticsTable != "undefined" && (jQuery.fn.DataTable.isDataTable(queriesStatisticsTable))) {
  queriesStatisticsTable.fnClearTable();
  queriesStatisticsTable.fnDestroy();
  }
@@ -58,7 +58,7 @@ myInterval=setInterval( function () {
 
 function loadEntitiesStatistics(){
 clearInterval(myInterval);
- if ( typeof entitiesStatisticsTable != "undefined" ) {
+ if ( typeof entitiesStatisticsTable != "undefined" && (jQuery.fn.DataTable.isDataTable(entitiesStatisticsTable))) {
  entitiesStatisticsTable.fnClearTable();
  entitiesStatisticsTable.fnDestroy();
  }
@@ -110,7 +110,7 @@ myInterval=setInterval( function () {
 
 function loadCachesStatistics(){
 clearInterval(myInterval);
- if ( typeof cachesStatisticsTable != "undefined" ) {
+ if ( typeof cachesStatisticsTable != "undefined" && (jQuery.fn.DataTable.isDataTable(cachesStatisticsTable))){
  cachesStatisticsTable.fnClearTable();
  cachesStatisticsTable.fnDestroy();
  }
@@ -168,7 +168,7 @@ myInterval=setInterval( function () {
 
 function loadCollectionsStatistics(){
 clearInterval(myInterval);
-if ( typeof collectionsStatisticsTable != "undefined" ) {
+if ( typeof collectionsStatisticsTable != "undefined" && (jQuery.fn.DataTable.isDataTable(collectionsStatisticsTable))) {
  collectionsStatisticsTable.fnClearTable();
  collectionsStatisticsTable.fnDestroy();
  }
@@ -221,7 +221,7 @@ myInterval=setInterval( function () {
 
 function loadPortletsStatistics(){
 clearInterval(myInterval);
-if ( typeof applicationsStatisticsTable != "undefined" ) {
+if ( typeof applicationsStatisticsTable != "undefined" && (jQuery.fn.DataTable.isDataTable(applicationsStatisticsTable)))  {
  applicationsStatisticsTable.fnClearTable();
  applicationsStatisticsTable.fnDestroy();
  }
@@ -283,7 +283,7 @@ myInterval=setInterval( function () {
 
 function loadTemplatesStatistics(){
 clearInterval(myInterval);
-if ( typeof templatesStatisticsTable != "undefined" ) {
+if ( typeof templatesStatisticsTable != "undefined" && (jQuery.fn.DataTable.isDataTable(templatesStatisticsTable))) {
  templatesStatisticsTable.fnClearTable();
  templatesStatisticsTable.fnDestroy();
  }
