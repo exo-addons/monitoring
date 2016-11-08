@@ -1,16 +1,24 @@
 $.noConflict();
+var myInterval;
 require( ["SHARED/bts_tab","SHARED/bts_tooltip"], function ( $ )
 {
 jQuery(document).ready(function() {
 loadQueriesStatistics();
+
 });
 } );
 
 function loadQueriesStatistics(){
-var queriesStatisticsTable=jQuery('#queriesTable').DataTable( {
+clearInterval(myInterval);
+if ( typeof queriesStatisticsTable != "undefined" ) {
+ queriesStatisticsTable.fnClearTable();
+ queriesStatisticsTable.fnDestroy();
+ }
+queriesStatisticsTable=jQuery('#queriesTable').DataTable( {
 
     "bProcessing": false,
     "bServerSide": false,
+    "aaSorting": [[ 1, "asc" ]],
            dom: 'Bfrtip',
                     buttons: [
                       {
@@ -43,12 +51,13 @@ var queriesStatisticsTable=jQuery('#queriesTable').DataTable( {
                   ]
 
                                            });
-setInterval( function () {
+myInterval=setInterval( function () {
     queriesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
 }, 10000 );
 }
 
 function loadEntitiesStatistics(){
+clearInterval(myInterval);
  if ( typeof entitiesStatisticsTable != "undefined" ) {
  entitiesStatisticsTable.fnClearTable();
  entitiesStatisticsTable.fnDestroy();
@@ -94,12 +103,13 @@ entitiesStatisticsTable=
                     ]
                                            });
 
-setInterval( function () {
+myInterval=setInterval( function () {
     entitiesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
-}, 10000 )
+}, 10000 );
 }
 
 function loadCachesStatistics(){
+clearInterval(myInterval);
  if ( typeof cachesStatisticsTable != "undefined" ) {
  cachesStatisticsTable.fnClearTable();
  cachesStatisticsTable.fnDestroy();
@@ -150,12 +160,14 @@ cachesStatisticsTable=
 
                  ]
                                            });
-setInterval( function () {
+
+myInterval=setInterval( function () {
     cachesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
 }, 10000 );
 }
 
 function loadCollectionsStatistics(){
+clearInterval(myInterval);
 if ( typeof collectionsStatisticsTable != "undefined" ) {
  collectionsStatisticsTable.fnClearTable();
  collectionsStatisticsTable.fnDestroy();
@@ -200,12 +212,15 @@ if ( typeof collectionsStatisticsTable != "undefined" ) {
                     { "width": "8%", "targets": 6 }
                 ]
                                            });
-setInterval( function () {
+
+
+myInterval=setInterval( function () {
     collectionsStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
 }, 10000 );
 }
 
 function loadPortletsStatistics(){
+clearInterval(myInterval);
 if ( typeof applicationsStatisticsTable != "undefined" ) {
  applicationsStatisticsTable.fnClearTable();
  applicationsStatisticsTable.fnDestroy();
@@ -215,6 +230,7 @@ if ( typeof applicationsStatisticsTable != "undefined" ) {
 
     "bProcessing": false,
     "bServerSide": false,
+    "aaSorting": [[ 4, "desc" ]],
              dom: 'Bfrtip',
                 buttons: [
                   {
@@ -233,9 +249,9 @@ if ( typeof applicationsStatisticsTable != "undefined" ) {
     "aoColumns": [
                     { "mDataProp": "name" },
                     { "mDataProp": "name" },
-                    { "mDataProp": "maxTime" },
-                    { "mDataProp": "minTime" },
-                    { "mDataProp": "averageTime" },
+                    { "mDataProp": "maxTime"},
+                    { "mDataProp": "minTime"},
+                    { "mDataProp": "averageTime"},
                     { "mDataProp": "execution" }
                   ] ,
     "columnDefs": [
@@ -246,20 +262,27 @@ if ( typeof applicationsStatisticsTable != "undefined" ) {
                      { "width": "12%", "targets": 1,render: function ( data, type, row ) {
                                                          return data.substring(data.indexOf('/')+1);
                                                             }},
-                     { "width": "12%", "targets": 2 },
-                     { "width": "12%", "targets": 3 },
+                     { "width": "12%", "targets": 2,render: function ( data, type, row ) {
+                                                     return row.maxTime+" ms";
+                                                   }},
+                     { "width": "12%", "targets": 3 ,render: function ( data, type, row ) {
+                                                     return row.minTime+" ms";
+                                                   }},
                      { "width": "12%", "targets": 4,render: function ( data, type, row ) {
-                                                        return parseFloat(data).toFixed(0);
-                                                     }  },
+                                                     return parseFloat(row.averageTime).toFixed(0)+" ms";
+                                                     }},
                      { "width": "12%", "targets": 5 }
                  ]
                                            });
-setInterval( function () {
+
+
+myInterval=setInterval( function () {
     applicationsStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
 }, 10000 );
 }
 
 function loadTemplatesStatistics(){
+clearInterval(myInterval);
 if ( typeof templatesStatisticsTable != "undefined" ) {
  templatesStatisticsTable.fnClearTable();
  templatesStatisticsTable.fnDestroy();
@@ -294,21 +317,27 @@ if ( typeof templatesStatisticsTable != "undefined" ) {
     "columnDefs": [
 
                      { "width": "60%", "targets": 0},
-                     { "width": "10%", "targets": 1 },
-                     { "width": "10%", "targets": 2 },
+                     { "width": "10%", "targets": 1,render: function ( data, type, row ) {
+                                                       return (data)+" ms";
+                                                   }},
+                     { "width": "10%", "targets": 2,render: function ( data, type, row ) {
+                                                         return (data)+" ms";
+                                                 }},
                      { "width": "10%", "targets": 3,render: function ( data, type, row ) {
-                                                        return parseFloat(data).toFixed(0);
-                                                     }  },
+                                                        return parseFloat(data).toFixed(0)+" ms";
+                                                     }},
                      { "width": "10%", "targets": 4 }
                  ]
                                            });
-setInterval( function () {
-    templatesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
 
+
+myInterval=setInterval( function () {
+    templatesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
 }, 10000 );
 }
 
 function loadApplicationsStatistics(){
+clearInterval(myInterval);
  var dataPoints = [];
 jQuery.getJSON('/rest/private/exo-statistics/applicationdata/', function(data)
 				{
@@ -358,6 +387,7 @@ jQuery("#chartContainer").show();
 }
 
 function loadMemoryStatistics(){
+clearInterval(myInterval);
 jQuery.getJSON('/rest/private/monitoring/memory/', function(data)
 {
  var dataPoints = [];
@@ -407,7 +437,7 @@ chartTitle=(key==0)? "Memory Heap Usage" : "Memory Non-Heap Usage";
 jQuery("#displaySocialData").hide();
 jQuery("#chartContainer").hide();
 jQuery("#memoryContent").show();
-setInterval(function(){ loadMemoryStatistics(); }, 10000);
+myInterval=setInterval(function(){ loadMemoryStatistics(); }, 10000);
 }
 
 function formatBytes(bytes) {
