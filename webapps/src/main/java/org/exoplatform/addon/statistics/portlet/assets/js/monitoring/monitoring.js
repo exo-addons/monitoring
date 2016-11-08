@@ -10,10 +10,7 @@ loadQueriesStatistics();
 
 function loadQueriesStatistics(){
 clearInterval(myInterval);
-if ( typeof queriesStatisticsTable != "undefined" && (jQuery.fn.DataTable.isDataTable(queriesStatisticsTable))) {
- queriesStatisticsTable.fnClearTable();
- queriesStatisticsTable.fnDestroy();
- }
+ if(!jQuery.fn.DataTable.isDataTable('#queriesTable')){
 queriesStatisticsTable=jQuery('#queriesTable').DataTable( {
 
     "bProcessing": false,
@@ -55,13 +52,11 @@ myInterval=setInterval( function () {
     queriesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
 }, 10000 );
 }
+}
 
 function loadEntitiesStatistics(){
 clearInterval(myInterval);
- if ( typeof entitiesStatisticsTable != "undefined" && (jQuery.fn.DataTable.isDataTable(entitiesStatisticsTable))) {
- entitiesStatisticsTable.fnClearTable();
- entitiesStatisticsTable.fnDestroy();
- }
+ if(!jQuery.fn.DataTable.isDataTable('#entitiesTable')){
 entitiesStatisticsTable=
  jQuery('#entitiesTable').DataTable( {
 
@@ -107,13 +102,11 @@ myInterval=setInterval( function () {
     entitiesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
 }, 10000 );
 }
+}
 
 function loadCachesStatistics(){
 clearInterval(myInterval);
- if ( typeof cachesStatisticsTable != "undefined" && (jQuery.fn.DataTable.isDataTable(cachesStatisticsTable))){
- cachesStatisticsTable.fnClearTable();
- cachesStatisticsTable.fnDestroy();
- }
+ if(!jQuery.fn.DataTable.isDataTable('#cachesTable')){
 cachesStatisticsTable=
  jQuery('#cachesTable').DataTable( {
     "bProcessing": false,
@@ -165,66 +158,62 @@ myInterval=setInterval( function () {
     cachesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
 }, 10000 );
 }
+}
 
 function loadCollectionsStatistics(){
 clearInterval(myInterval);
-if ( typeof collectionsStatisticsTable != "undefined" && (jQuery.fn.DataTable.isDataTable(collectionsStatisticsTable))) {
- collectionsStatisticsTable.fnClearTable();
- collectionsStatisticsTable.fnDestroy();
- }
-  collectionsStatisticsTable=
- jQuery('#collectionsTable').DataTable( {
+ if(!jQuery.fn.DataTable.isDataTable('#collectionsTable')){
+ collectionsStatisticsTable=
+  jQuery('#collectionsTable').DataTable( {
 
-    "bProcessing": false,
-    "bServerSide": false,
-            dom: 'Bfrtip',
-            buttons: [
-              {
-                extend: 'copy'
-              },
-              {
-                extend: 'csv',
-                filename: 'Collections Statistics'
+     "bProcessing": false,
+     "bServerSide": false,
+             dom: 'Bfrtip',
+             buttons: [
+               {
+                 extend: 'copy'
                },
-              {
-               extend: 'excel',
-               filename: 'Collections Statistics'
-             }
-             ],
-    "sAjaxSource": "/rest/private/exo-statistics/collections/",
-    "aoColumns": [
-                { "mData": "collection" },
-                { "mData": "CollectionPerformance" },
-                { "mData": "CollectionAccessCount" },
-                { "mData": "CollectionLoadsCount" },
-                { "mData": "CollectionFetchesCount" },
-                { "mData": "CollectionRecreationCount" },
-                { "mData": "CollectionModificationCount" }
+               {
+                 extend: 'csv',
+                 filename: 'Collections Statistics'
+                },
+               {
+                extend: 'excel',
+                filename: 'Collections Statistics'
+              }
               ],
-    "columnDefs": [
+     "sAjaxSource": "/rest/private/exo-statistics/collections/",
+     "aoColumns": [
+                 { "mData": "collection" },
+                 { "mData": "CollectionPerformance" },
+                 { "mData": "CollectionAccessCount" },
+                 { "mData": "CollectionLoadsCount" },
+                 { "mData": "CollectionFetchesCount" },
+                 { "mData": "CollectionRecreationCount" },
+                 { "mData": "CollectionModificationCount" }
+               ],
+     "columnDefs": [
 
-                    { "width": "52%", "targets": 0 },
-                    { "width": "8%", "targets": 1 },
-                    { "width": "8%", "targets": 2 },
-                    { "width": "8%", "targets": 3 },
-                    { "width": "8%", "targets": 4 },
-                    { "width": "8%", "targets": 5 },
-                    { "width": "8%", "targets": 6 }
-                ]
-                                           });
+                     { "width": "52%", "targets": 0 },
+                     { "width": "8%", "targets": 1 },
+                     { "width": "8%", "targets": 2 },
+                     { "width": "8%", "targets": 3 },
+                     { "width": "8%", "targets": 4 },
+                     { "width": "8%", "targets": 5 },
+                     { "width": "8%", "targets": 6 }
+                 ]
+                                            });
 
 
-myInterval=setInterval( function () {
-    collectionsStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
-}, 10000 );
+ myInterval=setInterval( function () {
+     collectionsStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
+ }, 10000 );
+ }
 }
 
 function loadPortletsStatistics(){
 clearInterval(myInterval);
-if ( typeof applicationsStatisticsTable != "undefined" && (jQuery.fn.DataTable.isDataTable(applicationsStatisticsTable)))  {
- applicationsStatisticsTable.fnClearTable();
- applicationsStatisticsTable.fnDestroy();
- }
+ if(!jQuery.fn.DataTable.isDataTable('#applicationsTable')){
  applicationsStatisticsTable=
  jQuery('#applicationsTable').DataTable( {
 
@@ -280,13 +269,10 @@ myInterval=setInterval( function () {
     applicationsStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
 }, 10000 );
 }
-
+}
 function loadTemplatesStatistics(){
 clearInterval(myInterval);
-if ( typeof templatesStatisticsTable != "undefined" && (jQuery.fn.DataTable.isDataTable(templatesStatisticsTable))) {
- templatesStatisticsTable.fnClearTable();
- templatesStatisticsTable.fnDestroy();
- }
+ if(!jQuery.fn.DataTable.isDataTable('#templatesTable')){
   templatesStatisticsTable=
  jQuery('#templatesTable').DataTable( {
 
@@ -335,7 +321,7 @@ myInterval=setInterval( function () {
     templatesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
 }, 10000 );
 }
-
+}
 function loadApplicationsStatistics(){
 clearInterval(myInterval);
  var dataPoints = [];
