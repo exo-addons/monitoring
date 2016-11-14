@@ -118,7 +118,6 @@ cachesStatisticsTable=
          ],
     "sAjaxSource": "/rest/private/exo-statistics/caches/",
      "createdRow": function( row, data, dataIndex ) {
-     alert(jQuery(row).children(':nth-child(5)').html());
             if( parseInt(jQuery(row).children(':nth-child(5)').html().substring(0,jQuery(row).children(':nth-child(5)').html().indexOf('%')))>=80)
             {
             jQuery(row).children(':nth-child(5)').addClass('red');

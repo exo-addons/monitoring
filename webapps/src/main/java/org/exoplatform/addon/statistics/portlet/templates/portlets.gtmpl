@@ -5,7 +5,7 @@
                 <th>Phase</th>
                 <th>Max Time (ms)</th>
                 <th>Min Time (ms)</th>
-                <th>Average Time (ms)</th>
+                <th class="entitywidth">Average Time (ms)</th>
                 <th>Execution Count</th>
             </tr>
         </thead>
@@ -15,7 +15,7 @@
                           <td></td>
                           <td></td>
                           <td></td>
-                          <td></td>
+                          <td class="entitywidth"></td>
                           <td></td>
 
                      </tr>
