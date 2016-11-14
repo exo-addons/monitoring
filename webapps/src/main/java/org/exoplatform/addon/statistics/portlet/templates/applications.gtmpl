@@ -1,8 +1,11 @@
-<div id="content" style="margin: 0; width: 100%;">
-<div id="displaySocialData" style="float: left; width: 50%;">
-                       <ul></ul>
+<div id="applicationContent">
+<div id="heapMemory" class="row" style="padding:15px">
+<label style="padding:15px"><b>Applications Data</b></label>
+     <div id="applicationDataInfo" class="span6">
+       <hr style="width: 30%; height: 2%"/>
+         <ul></ul>
+      </div>
+     <div id="applicationContainer" class="span6"></div>
 </div>
-<div id="chartContainer" style="float: left; width: 50%; "/>
-<button class="pull-right btn btn-primary hidden-phone DisableButton" id="reload" type="button">Reload</button>
 </div>
 

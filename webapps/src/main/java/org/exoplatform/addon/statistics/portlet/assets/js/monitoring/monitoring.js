@@ -4,7 +4,6 @@ require( ["SHARED/bts_tab","SHARED/bts_tooltip"], function ( $ )
 {
 jQuery(document).ready(function() {
 loadQueriesStatistics();
-
 });
 } );
 
@@ -18,9 +17,6 @@ queriesStatisticsTable=jQuery('#queriesTable').DataTable( {
     "aaSorting": [[ 1, "asc" ]],
            dom: 'Bfrtip',
                     buttons: [
-                      {
-                        extend: 'copy'
-                      },
                       {
                         extend: 'csv',
                         filename: 'Queries Statistics'
@@ -51,6 +47,7 @@ queriesStatisticsTable=jQuery('#queriesTable').DataTable( {
 myInterval=setInterval( function () {
     queriesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
 }, 10000 );
+
 }
 }
 
@@ -64,9 +61,6 @@ entitiesStatisticsTable=
     "bServerSide": false,
     dom: 'Bfrtip',
     buttons: [
-      {
-        extend: 'copy'
-      },
       {
         extend: 'csv',
         filename: 'Entities Statistics'
@@ -114,9 +108,6 @@ cachesStatisticsTable=
         dom: 'Bfrtip',
         buttons: [
           {
-            extend: 'copy'
-          },
-          {
             extend: 'csv',
             filename: 'Caches Statistics'
            },
@@ -141,7 +132,7 @@ cachesStatisticsTable=
                      { "width": "30%", "targets": 0 },
                      { "width": "10%", "targets": 1 },
                      { "width": "10%", "targets": 2 },
-                     { "width": "10%", "targets": 3 ,render: function ( data, type, row ) {
+                     { className: "my_class","width": "10%", "targets": 3 ,render: function ( data, type, row ) {
                                                          return row.MissCount+row.HitCount==0? 0.0 + " %" : ((row.HitCount/(row.MissCount+row.HitCount)) * 100).toFixed(0) + " %";
                                                            }},
                      { "width": "10%", "targets": 4,render: function ( data, type, row ) {
@@ -152,7 +143,7 @@ cachesStatisticsTable=
                      { "width": "10%", "targets": 7 }
 
                  ]
-                                           });
+             });
 
 myInterval=setInterval( function () {
     cachesStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
@@ -170,9 +161,6 @@ clearInterval(myInterval);
      "bServerSide": false,
              dom: 'Bfrtip',
              buttons: [
-               {
-                 extend: 'copy'
-               },
                {
                  extend: 'csv',
                  filename: 'Collections Statistics'
@@ -223,9 +211,6 @@ clearInterval(myInterval);
              dom: 'Bfrtip',
                 buttons: [
                   {
-                    extend: 'copy'
-                  },
-                  {
                     extend: 'csv',
                     filename: 'Portlets Statistics'
                    },
@@ -251,14 +236,10 @@ clearInterval(myInterval);
                      { "width": "12%", "targets": 1,render: function ( data, type, row ) {
                                                          return data.substring(data.indexOf('/')+1);
                                                             }},
-                     { "width": "12%", "targets": 2,render: function ( data, type, row ) {
-                                                     return row.maxTime+" ms";
-                                                   }},
-                     { "width": "12%", "targets": 3 ,render: function ( data, type, row ) {
-                                                     return row.minTime+" ms";
-                                                   }},
+                     { "width": "12%", "targets": 2},
+                     { "width": "12%", "targets": 3},
                      { "width": "12%", "targets": 4,render: function ( data, type, row ) {
-                                                     return parseFloat(row.averageTime).toFixed(0)+" ms";
+                                                     return parseFloat(row.averageTime).toFixed(0);
                                                      }},
                      { "width": "12%", "targets": 5 }
                  ]
@@ -268,6 +249,7 @@ clearInterval(myInterval);
 myInterval=setInterval( function () {
     applicationsStatisticsTable.ajax.reload( null, false ); // user paging is not reset on reload
 }, 10000 );
+
 }
 }
 function loadTemplatesStatistics(){
@@ -280,9 +262,6 @@ clearInterval(myInterval);
     "bServerSide": false,
              dom: 'Bfrtip',
                     buttons: [
-                      {
-                        extend: 'copy'
-                      },
                       {
                         extend: 'csv',
                         filename: 'Templates Statistics'
@@ -303,14 +282,10 @@ clearInterval(myInterval);
     "columnDefs": [
 
                      { "width": "60%", "targets": 0},
-                     { "width": "10%", "targets": 1,render: function ( data, type, row ) {
-                                                       return (data)+" ms";
-                                                   }},
-                     { "width": "10%", "targets": 2,render: function ( data, type, row ) {
-                                                         return (data)+" ms";
-                                                 }},
+                     { "width": "10%", "targets": 1},
+                     { "width": "10%", "targets": 2},
                      { "width": "10%", "targets": 3,render: function ( data, type, row ) {
-                                                        return parseFloat(data).toFixed(0)+" ms";
+                                                        return parseFloat(data).toFixed(0);
                                                      }},
                      { "width": "10%", "targets": 4 }
                  ]
@@ -326,16 +301,17 @@ function loadApplicationsStatistics(){
 clearInterval(myInterval);
  var dataPoints = [];
 jQuery.getJSON('/rest/private/exo-statistics/applicationdata/', function(data)
-				{
-jQuery("#displaySocialData ul").html("");
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Activities :'+ '<span>'+data.activitiesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Spaces :'+ '<span>'+data.spacesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Identities :'+ '<span>'+data.identitiesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Connections :'+ '<span>'+data.connectionsCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Pages :'+ '<span>'+data.pagesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Templates :'+ '<span>'+data.templatesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki Attachements :'+ '<span>'+data.attachmentCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
-  var chart = new CanvasJS.Chart("chartContainer",{
+
+{
+jQuery("#applicationDataInfo ul").html("");
+jQuery("#applicationDataInfo ul").append('<li>'+'<p class="font16">Number of Activities :'+ '<span>'+data.activitiesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#applicationDataInfo ul").append('<li>'+'<p class="font16">Number of Spaces :'+ '<span>'+data.spacesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#applicationDataInfo ul").append('<li>'+'<p class="font16">Number of Identities :'+ '<span>'+data.identitiesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#applicationDataInfo ul").append('<li>'+'<p class="font16">Number of Connections :'+ '<span>'+data.connectionsCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#applicationDataInfo ul").append('<li>'+'<p class="font16">Number of Wiki Pages :'+ '<span>'+data.pagesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#applicationDataInfo ul").append('<li>'+'<p class="font16">Number of Wiki Templates :'+ '<span>'+data.templatesCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+jQuery("#applicationDataInfo ul").append('<li>'+'<p class="font16">Number of Wiki Attachements :'+ '<span>'+data.attachmentCount+'</span>'+'<p/>'+'</li>'+'<hr width=30%>' );
+  var chart = new CanvasJS.Chart("applicationContainer",{
     height:300,
     width: 400,
 
@@ -368,8 +344,7 @@ jQuery("#displaySocialData ul").append('<li>'+'<p class="font16">Number of Wiki 
     chart.render();
 });
 jQuery("#memoryContent").hide();
-jQuery("#displaySocialData").show();
-jQuery("#chartContainer").show();
+jQuery("#applicationContent").show();
 }
 
 function loadMemoryStatistics(){
@@ -420,8 +395,7 @@ chartTitle=(key==0)? "Memory Heap Usage" : "Memory Non-Heap Usage";
 
 });
 });
-jQuery("#displaySocialData").hide();
-jQuery("#chartContainer").hide();
+jQuery("#applicationContent").hide();
 jQuery("#memoryContent").show();
 myInterval=setInterval(function(){ loadMemoryStatistics(); }, 10000);
 }

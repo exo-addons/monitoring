@@ -1,5 +1,6 @@
 package org.exoplatform.addon.statistics.services;
 
+import com.sun.management.OperatingSystemMXBean;
 import org.exoplatform.addon.statistics.services.impl.StatisticsDataStorageImpl;
 import org.exoplatform.addon.statistics.util.StatisticsUtils;
 import org.exoplatform.container.PortalContainer;
@@ -23,6 +24,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.lang.management.ManagementFactory;
 import java.text.DecimalFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -249,6 +251,23 @@ public class StatisticsRestService implements ResourceContainer {
                 jsonObject.put("pagesCount", pagesCount);
                 jsonObject.put("templatesCount", templatesCount);
                 jsonObject.put("attachmentCount", attachmentCount);
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return Response.ok(jsonObject.toString(), MediaType.APPLICATION_JSON).build();
+    }
+    @GET
+    @Path("cpu")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response loadCPUStatistics() throws Exception {
+        JSONObject jsonObject = new JSONObject();
+        OperatingSystemMXBean osBean = ManagementFactory.getPlatformMXBean(OperatingSystemMXBean.class);
+        try {
+
+            jsonObject.put("currentDate", System.currentTimeMillis() );
+            jsonObject.put("processCPU", osBean.getProcessCpuLoad() * 100);
 
 
         } catch (JSONException e) {
