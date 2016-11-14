@@ -117,6 +117,13 @@ cachesStatisticsTable=
          }
          ],
     "sAjaxSource": "/rest/private/exo-statistics/caches/",
+     "createdRow": function( row, data, dataIndex ) {
+     alert(jQuery(row).children(':nth-child(5)').html());
+            if( parseInt(jQuery(row).children(':nth-child(5)').html().substring(0,jQuery(row).children(':nth-child(5)').html().indexOf('%')))>=80)
+            {
+            jQuery(row).children(':nth-child(5)').addClass('red');
+            }
+         },
     "aoColumns": [
                     { "mDataProp": "Name" },
                     { "mDataProp": "HitCount" },
@@ -220,6 +227,15 @@ clearInterval(myInterval);
                  }
                  ],
     "sAjaxSource": "/rest/statistics/application/all/",
+     "createdRow": function( row, data, dataIndex ) {
+        if( jQuery(row).children(':nth-child(5)').html()>=1000 && jQuery(row).children(':nth-child(5)').html()<5000)
+        {
+        jQuery(row).children(':nth-child(5)').addClass('yellow');
+        }
+        else if(jQuery(row).children(':nth-child(5)').html()>=5000){
+         jQuery(row).children(':nth-child(5)').addClass('red');
+        }
+     },
     "aoColumns": [
                     { "mDataProp": "name" },
                     { "mDataProp": "name" },
@@ -272,6 +288,15 @@ clearInterval(myInterval);
                      }
                      ],
     "sAjaxSource": "/rest/statistics/template/all/",
+    "createdRow": function( row, data, dataIndex ) {
+    if( jQuery(row).children(':nth-child(4)').html()>=1000 && jQuery(row).children(':nth-child(4)').html()<5000)
+    {
+    jQuery(row).children(':nth-child(4)').addClass('yellow');
+    }
+    else if(jQuery(row).children(':nth-child(4)').html()>=5000){
+     jQuery(row).children(':nth-child(4)').addClass('red');
+    }
+ },
     "aoColumns": [
                     { "mDataProp": "name" },
                     { "mDataProp": "maxTime" },
@@ -289,7 +314,7 @@ clearInterval(myInterval);
                                                      }},
                      { "width": "10%", "targets": 4 }
                  ]
-                                           });
+ });
 
 
 myInterval=setInterval( function () {
