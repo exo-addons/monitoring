@@ -42,7 +42,7 @@ Entities
 
 * Performance:  Displays the ratio between lightweight load (without an additional DB query) and any operation that issues  an additional read or write on the database
 * Access Count : The number of times the entity was accessed.
-* *Loads:* The number of times the entity was loaded witout requiring an additional DB query.
+* **Loads:** The number of times the entity was loaded witout requiring an additional DB query.
 * Fetches:The number of time that a separate DB query was required to retrieve the entity.
 * Optimistic Faults: The number of times a concurrent modification caused an optimistic lock failure inside the DB.
 * Modifications:The number of times the entity was updated.
