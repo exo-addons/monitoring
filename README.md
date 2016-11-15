@@ -12,8 +12,8 @@ A monitoring tool that allows administrators to monitor some exo applications in
 All available metrics are described with details in the following sections:
 
 
-== Queries:
-
+Queries:
+-----------------------
 
 ![The HQL Queries Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Queries.png)
 
@@ -22,7 +22,8 @@ All available metrics are described with details in the following sections:
 * Invocations: The total amount of invocations (caches & direct).
 * Rows Fetched : The number of rows directly fetched from the DB.
 
-== Collections:
+Collections:
+-----------------------
 
 ![Collections Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Collections.png)
 
@@ -33,7 +34,8 @@ All available metrics are described with details in the following sections:
 ** Fetches:The number of time that a separate DB query was required to retrieve the collection.
 ** Modifications:The number of times the collection was updated.
 
-== Entities:
+Entities:
+-----------------------
 
 ![Entities Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Entities.png)
 
@@ -44,7 +46,8 @@ All available metrics are described with details in the following sections:
 ** Optimistic Faults: The number of times a concurrent modification caused an optimistic lock failure inside the DB.
 ** Modifications:The number of times the entity was updated.
 
-== Caches:
+Caches:
+-----------------------
 
 ![Caches Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Caches.png)
 
@@ -56,8 +59,8 @@ All available metrics are described with details in the following sections:
 * Size: The number of entries in the cache.
 * TimeToLive: The valid period of the cache in seconds. If the value is set to -1, the cache never expires.
 
-== Portlets:
-
+Portlets:
+-----------------------
 
 
 
