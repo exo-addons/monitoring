@@ -1,23 +1,23 @@
 <table id="applicationsTable" class="display nowrap" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th>Portlet Name</th>
-                <th>Phase</th>
-                <th>Max Time (ms)</th>
-                <th>Min Time (ms)</th>
-                <th class="entitywidth">Average Time (ms)</th>
-                <th>Execution Count</th>
-            </tr>
-        </thead>
-<tbody>
-                     <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td class="entitywidth"></td>
-                          <td></td>
+    <thead>
+        <tr>
+            <th>Portlet Name</th>
+            <th>Phase</th>
+            <th>Max Time (ms)</th>
+            <th>Min Time (ms)</th>
+            <th class="entitywidth">Average Time (ms)</th>
+            <th>Execution Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="entitywidth"></td>
+            <td></td>
 
-                     </tr>
- </tbody>
+        </tr>
+    </tbody>
 </table>

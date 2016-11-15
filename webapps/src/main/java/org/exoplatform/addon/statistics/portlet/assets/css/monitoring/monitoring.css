@@ -55,6 +55,11 @@ table.dataTable.nowrap th.red, table.dataTable.nowrap td.red{
     background:#ff5933!important;
 }
 
+table.dataTable.nowrap th.green, table.dataTable.nowrap td.green{
+    width: 110px!important;
+    background:#3CB371!important;
+}
+
 .canvasjs-chart-credit {
    display: none;
 }

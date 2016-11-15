@@ -1,11 +1,10 @@
 <div id="applicationContent">
-<div id="heapMemory" class="row" style="padding:15px">
-<label style="padding:15px"><b>Applications Data</b></label>
-     <div id="applicationDataInfo" class="span6">
-       <hr style="width: 30%; height: 2%"/>
-         <ul></ul>
-      </div>
-     <div id="applicationContainer" class="span6"></div>
+    <div id="heapMemory" class="row" style="padding:15px">
+        <label style="padding:15px"><b>Applications Data</b></label>
+        <div id="applicationDataInfo" class="span6">
+            <hr style="width: 30%; height: 2%" />
+            <ul></ul>
+        </div>
+        <div id="applicationContainer" class="span6"></div>
+    </div>
 </div>
-</div>
-

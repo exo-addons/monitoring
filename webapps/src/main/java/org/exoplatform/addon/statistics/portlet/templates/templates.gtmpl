@@ -1,21 +1,21 @@
 <table id="templatesTable" class="display nowrap" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th>Template Name</th>
-                <th>Max Time (ms)</th>
-                <th>Min Time (ms)</th>
-                <th>Average Time (ms)</th>
-                <th>Execution Count</th>
-            </tr>
-        </thead>
-<tbody>
-                     <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+    <thead>
+        <tr>
+            <th>Template Name</th>
+            <th>Max Time (ms)</th>
+            <th>Min Time (ms)</th>
+            <th>Average Time (ms)</th>
+            <th>Execution Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
 
-                     </tr>
- </tbody>
+        </tr>
+    </tbody>
 </table>
