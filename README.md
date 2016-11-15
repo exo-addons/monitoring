@@ -13,14 +13,14 @@ All available metrics are described with details in the following sections:
 
 
 Queries:
-![The HQL Queries Details](https://github.com/exo-addons/monitoring/blob/master/portlet/docs/images/Queries.png)
+![The HQL Queries Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Queries.png)
 
 -- Performance: the relative performance in comparison to other queries (the single query performance is estimated using avg-time*total-invocations)
 -- Time in DB: the total amount of time spent inside the DB (the time is estimated using avg-time*direct-invocations.
 -- Invocations: The total amount of invocations (caches & direct)
 -- Rows Fetched : The number of rows directly fetched from the DB.
 Collections:
-![Collections Details](https://github.com/exo-addons/monitoring/blob/master/portlet/docs/images/Collections.png)
+![Collections Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Collections.png)
 
 -- Performance:  Displays the ratio between lightweight load (without an additional DB query) and any operation that issues  an additional read or write on the database
 -- Access Count : Th number for time the collection was accessed.
@@ -30,7 +30,7 @@ Collections:
 -- Modifications:The number of times the collection was updated.
 
 Entities:
-![Entities Details](https://github.com/exo-addons/monitoring/blob/master/portlet/docs/images/Entities.png)
+![Entities Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Entities.png)
 
 -- Performance:  Displays the ratio between lightweight load (without an additional DB query) and any operation that issues  an additional read or write on the database
 -- Access Count : Th number for time the entity was accessed.
@@ -40,7 +40,7 @@ Entities:
 -- Modifications:The number of times the entity was updated.
 
 Caches:
-![Caches Details](https://github.com/exo-addons/monitoring/blob/master/portlet/docs/images/Caches.png)
+![Caches Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Caches.png)
 
 -- HitCount: The total number of times the cache was successfully queried.
 -- MissCount: The total number of times the cache was queried without success.
@@ -55,23 +55,4 @@ Portlets:
 
 
 
-
-![Real Time monitoring of eXo Platform](https://github.com/exo-addons/monitoring/blob/master/portlet/docs/images/Monitoring.png)
-
-DONE
-===============
-
-- Display HQL statistics in real time (time in DB ,query performance,invocations count ,...)
-- Display collections and entities statistics
-- Display eXo caches statistics (HitCount,MissCount,...)
-
-
-
-
-TODO
-===============
-
-- Export all metrics into csv file.
-- Add a chart that displays all queries statistics.
-- Add a chart to display details on a selected table entry.
 
