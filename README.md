@@ -13,17 +13,17 @@ A monitoring tool that allows administrators to monitor some exo applications in
 All available metrics are described with details in the following sections:
 
 
-Queries:
+Queries
 -----------------------
 
 ![The HQL Queries Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Queries.png)
 
 * Performance: the relative performance in comparison to other queries (the single query performance is estimated using avg-time*total-invocations).
 * Time in DB: the total amount of time spent inside the DB (the time is estimated using avg-time*direct-invocations.
-* Invocations: The total amount of invocations (caches & direct).
+* Invocations: The total amount of invocations (cached & direct).
 * Rows Fetched : The number of rows directly fetched from the DB.
 
-Collections:
+Collections
 -----------------------
 
 ![Collections Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Collections.png)
@@ -35,7 +35,7 @@ Collections:
 * Fetches:The number of time that a separate DB query was required to retrieve the collection.
 * Modifications:The number of times the collection was updated.
 
-Entities:
+Entities
 -----------------------
 
 ![Entities Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Entities.png)
@@ -47,7 +47,7 @@ Entities:
 * Optimistic Faults: The number of times a concurrent modification caused an optimistic lock failure inside the DB.
 * Modifications:The number of times the entity was updated.
 
-Caches:
+Caches
 -----------------------
 
 ![Caches Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Caches.png)
@@ -60,7 +60,7 @@ Caches:
 * Size: The number of entries in the cache.
 * TimeToLive: The valid period of the cache in seconds. If the value is set to -1, the cache never expires.
 
-Portlets:
+Portlets
 -----------------------
 
 ![Portlets Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Portlets.png)
@@ -87,7 +87,7 @@ Application Data
 ![Applications Data Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Applications.png)
 
 * An overview of the application statistics .
-* A graphical overview.
+* A chart applications statistics.
 
 Memory
 -----------------------
@@ -95,7 +95,7 @@ Memory
 ![Memory Usage](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Memory.png)
 
 * An overview of memory usage .
-* A graphic overview.
+* A memory usage chart statistics.
 
 
 
