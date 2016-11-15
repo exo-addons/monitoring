@@ -27,24 +27,24 @@ Collections:
 
 ![Collections Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Collections.png)
 
-** Performance:  Displays the ratio between lightweight load (without an additional DB query) and any operation that issues  an additional read or write on the database
-** Access Count : Th number for time the collection was accessed.
-** Loads:Th number for time the collection was loaded witout requiring an additional DB query.
-** Recreations: The number of times a full deletion and full re-insertion was performed (heavyweight operation).
-** Fetches:The number of time that a separate DB query was required to retrieve the collection.
-** Modifications:The number of times the collection was updated.
+* Performance:  Displays the ratio between lightweight load (without an additional DB query) and any operation that issues  an additional read or write on the database
+* Access Count : Th number for time the collection was accessed.
+* Loads:Th number for time the collection was loaded witout requiring an additional DB query.
+* Recreations: The number of times a full deletion and full re-insertion was performed (heavyweight operation).
+* Fetches:The number of time that a separate DB query was required to retrieve the collection.
+* Modifications:The number of times the collection was updated.
 
 Entities:
 -----------------------
 
 ![Entities Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Entities.png)
 
-** Performance:  Displays the ratio between lightweight load (without an additional DB query) and any operation that issues  an additional read or write on the database
-** Access Count : Th number for time the entity was accessed.
-** Loads:Th number for time the entity was loaded witout requiring an additional DB query.
-** Fetches:The number of time that a separate DB query was required to retrieve the entity.
-** Optimistic Faults: The number of times a concurrent modification caused an optimistic lock failure inside the DB.
-** Modifications:The number of times the entity was updated.
+* Performance:  Displays the ratio between lightweight load (without an additional DB query) and any operation that issues  an additional read or write on the database
+* Access Count : Th number for time the entity was accessed.
+* Loads:Th number for time the entity was loaded witout requiring an additional DB query.
+* Fetches:The number of time that a separate DB query was required to retrieve the entity.
+* Optimistic Faults: The number of times a concurrent modification caused an optimistic lock failure inside the DB.
+* Modifications:The number of times the entity was updated.
 
 Caches:
 -----------------------
@@ -61,6 +61,41 @@ Caches:
 
 Portlets:
 -----------------------
+
+![Portles Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Portles.png)
+
+* Phase: An identifier for the portlet action lifecycle
+* Max Time: The max response time for portlet access .
+* Min Time: The min response time for portlet access.
+* Average Time : The average amount of time for portlet access.
+* Execution count: The number of times the portlet was executed.
+
+Templates:
+-----------------------
+
+![Templates Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Templates.png)
+
+* Max Time: The max response time for template access .
+* Min Time: The min response time for template access.
+* Average Time : The average amount of time for template access.
+* Execution count: The number of times the template was executed.
+
+Application Data
+-----------------------
+
+![Applications Data Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Applications.png)
+
+* An overview of the application statistics .
+* A graphical overview.
+
+Memory
+-----------------------
+
+![Mzemory Usage](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Memory.png)
+
+* An overview of memory usage .
+* A graphic overview.
+
 
 
 
