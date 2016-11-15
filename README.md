@@ -8,6 +8,7 @@ A monitoring tool that allows administrators to monitor some exo applications in
 - Portlets response time (Max execution time,Min time ,average time...)
 - Templates response time (Max execution time,Min time ,average time...)
 - JPA applications statistics (Activities count ,Spaces count,Identities count,...)
+- Export statistics to CSV and Excel.
 
 All available metrics are described with details in the following sections:
 
@@ -62,7 +63,7 @@ Caches:
 Portlets:
 -----------------------
 
-![Portles Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Portles.png)
+![Portlets Details](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Portlets.png)
 
 * Phase: An identifier for the portlet action lifecycle
 * Max Time: The max response time for portlet access .
@@ -91,10 +92,12 @@ Application Data
 Memory
 -----------------------
 
-![Mzemory Usage](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Memory.png)
+![Memory Usage](https://github.com/exo-addons/monitoring/blob/master/webapps/docs/images/Memory.png)
 
 * An overview of memory usage .
 * A graphic overview.
+
+
 
 
 
