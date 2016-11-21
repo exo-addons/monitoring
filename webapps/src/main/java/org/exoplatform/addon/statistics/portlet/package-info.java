@@ -7,11 +7,12 @@
         @Script(id = "datatables", value = "js/datatable/jquery.dataTables.js",depends = "jquery"),
         @Script(id = "datatables-buttons", value = "js/datatable/dataTables.buttons.js",depends={"jquery","datatables"}),
         @Script(id = "flash-buttons", value = "js/datatable/buttons.flash.js",depends={"jquery","datatables","datatables-buttons"}),
+        @Script(id = "print-buttons", value = "js/datatable/buttons.print.js",depends={"jquery","datatables","datatables-buttons"}),
         @Script(id = "jszip", value = "js/datatable/jszip.min.js"),
         @Script(id = "highchart-js", value = "js/graphs/highcharts.js",depends = "jquery"),
         @Script(id = "exporting-js", value = "js/graphs/exporting.js",depends = "highchart-js"),
         @Script(id = "canvas-js", value = "js/graphs/canvasjs.min.js",depends = "jquery"),
-        @Script(id = "hibernate-statistics-js", value = "js/monitoring/monitoring.js",depends ={"flash-buttons","highchart-js","exporting-js","canvas-js","jszip"})
+        @Script(id = "hibernate-statistics-js", value = "js/monitoring/monitoring.js",depends ={"flash-buttons","print-buttons","highchart-js","exporting-js","canvas-js","jszip"})
 })
 
 @Stylesheets({

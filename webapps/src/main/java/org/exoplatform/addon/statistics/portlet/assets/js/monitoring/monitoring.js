@@ -23,12 +23,17 @@ function loadQueriesStatistics() {
             }, {
                 extend: 'excel',
                 filename: 'Queries Statistics'
+            }, {
+                extend: 'print',
+                title: 'Queries Statistics'
             }],
             "sAjaxSource": "/rest/private/exo-statistics/queries/",
             "createdRow": function(row, data, dataIndex) {
                 if (parseInt(jQuery(row).children(':nth-child(2)').html().substring(0, jQuery(row).children(':nth-child(2)').html().indexOf('%'))) >= 90) {
                     jQuery(row).children(':nth-child(2)').addClass('green');
-                }
+                } else if (parseInt(jQuery(row).children(':nth-child(2)').html().substring(0, jQuery(row).children(':nth-child(2)').html().indexOf('%'))) < 20) {
+                    jQuery(row).children(':nth-child(2)').addClass('red');
+                } else jQuery(row).children(':nth-child(2)').addClass('yellow');
             },
             "aoColumns": [{
                     "mData": "query"
@@ -83,6 +88,9 @@ function loadEntitiesStatistics() {
                 }, {
                     extend: 'excel',
                     filename: 'Entities Statistics'
+                }, {
+                    extend: 'print',
+                    title: 'Entities Statistics'
                 }],
                 "sAjaxSource": "/rest/private/exo-statistics/entities/",
                 "createdRow": function(row, data, dataIndex) {
@@ -115,19 +123,34 @@ function loadEntitiesStatistics() {
                         "targets": 1
                     }, {
                         "width": "8%",
-                        "targets": 2
+                        "targets": 2,
+                        render: function(data, type, row) {
+                            return '\u200C' + data;
+                        }
                     }, {
                         "width": "8%",
-                        "targets": 3
+                        "targets": 3,
+                        render: function(data, type, row) {
+                            return '\u200C' + data;
+                        }
                     }, {
                         "width": "8%",
-                        "targets": 4
+                        "targets": 4,
+                        render: function(data, type, row) {
+                            return '\u200C' + data;
+                        }
                     }, {
                         "width": "8%",
-                        "targets": 5
+                        "targets": 5,
+                        render: function(data, type, row) {
+                            return '\u200C' + data;
+                        }
                     }, {
                         "width": "8%",
-                        "targets": 6
+                        "targets": 6,
+                        render: function(data, type, row) {
+                            return '\u200C' + data;
+                        }
                     }
                 ]
             });
@@ -153,6 +176,9 @@ function loadCollectionsStatistics() {
                 }, {
                     extend: 'excel',
                     filename: 'Collections Statistics'
+                }, {
+                    extend: 'print',
+                    title: 'Collections Statistics'
                 }],
                 "sAjaxSource": "/rest/private/exo-statistics/collections/",
                 "createdRow": function(row, data, dataIndex) {
@@ -185,19 +211,34 @@ function loadCollectionsStatistics() {
                         "targets": 1
                     }, {
                         "width": "8%",
-                        "targets": 2
+                        "targets": 2,
+                        render: function(data, type, row) {
+                            return '\u200C' + data;
+                        }
                     }, {
                         "width": "8%",
-                        "targets": 3
+                        "targets": 3,
+                        render: function(data, type, row) {
+                            return '\u200C' + data;
+                        }
                     }, {
                         "width": "8%",
-                        "targets": 4
+                        "targets": 4,
+                        render: function(data, type, row) {
+                            return '\u200C' + data;
+                        }
                     }, {
                         "width": "8%",
-                        "targets": 5
+                        "targets": 5,
+                        render: function(data, type, row) {
+                            return '\u200C' + data;
+                        }
                     }, {
                         "width": "8%",
-                        "targets": 6
+                        "targets": 6,
+                        render: function(data, type, row) {
+                            return '\u200C' + data;
+                        }
                     }
                 ]
             });
@@ -223,6 +264,9 @@ function loadCachesStatistics() {
                 }, {
                     extend: 'excel',
                     filename: 'Caches Statistics'
+                }, {
+                    extend: 'print',
+                    title: 'Caches Statistics'
                 }],
                 "sAjaxSource": "/rest/private/exo-statistics/caches/",
                 "createdRow": function(row, data, dataIndex) {
@@ -254,12 +298,17 @@ function loadCachesStatistics() {
                         "targets": 0
                     }, {
                         "width": "10%",
-                        "targets": 1
+                        "targets": 1,
+                        render: function(data, type, row) {
+                            return '\u200C' + data;
+                        }
                     }, {
                         "width": "10%",
-                        "targets": 2
+                        "targets": 2,
+                        render: function(data, type, row) {
+                            return '\u200C' + data;
+                        }
                     }, {
-                        className: "my_class",
                         "width": "10%",
                         "targets": 3,
                         render: function(data, type, row) {
@@ -276,10 +325,16 @@ function loadCachesStatistics() {
                         "targets": 5
                     }, {
                         "width": "10%",
-                        "targets": 6
+                        "targets": 6,
+                        render: function(data, type, row) {
+                            return '\u200C' + data;
+                        }
                     }, {
                         "width": "10%",
-                        "targets": 7
+                        "targets": 7,
+                        render: function(data, type, row) {
+                            return '\u200C' + data;
+                        }
                     }
 
                 ]
@@ -311,6 +366,9 @@ function loadPortletsStatistics() {
                 }, {
                     extend: 'excel',
                     filename: 'Portlets Statistics'
+                }, {
+                    extend: 'print',
+                    title: 'Portlets Statistics'
                 }],
                 "sAjaxSource": "/rest/statistics/application/all/",
                 "createdRow": function(row, data, dataIndex) {
@@ -352,7 +410,10 @@ function loadPortletsStatistics() {
                         "targets": 2
                     }, {
                         "width": "12%",
-                        "targets": 3
+                        "targets": 3,
+                        render: function(data, type, row) {
+                            return '\u200C' + data;
+                        }
                     }, {
                         "width": "12%",
                         "targets": 4,
@@ -389,6 +450,9 @@ function loadTemplatesStatistics() {
                 }, {
                     extend: 'excel',
                     filename: 'Templates Statistics'
+                }, {
+                    extend: 'print',
+                    title: 'Templates Statistics'
                 }],
                 "sAjaxSource": "/rest/statistics/template/all/",
                 "createdRow": function(row, data, dataIndex) {
@@ -413,13 +477,19 @@ function loadTemplatesStatistics() {
 
                     {
                         "width": "60%",
-                        "targets": 0
+                        "targets": 0,
+                        render: function(data, type, row) {
+                            return data.substring(data.lastIndexOf('/') + 1);
+                        }
                     }, {
                         "width": "10%",
                         "targets": 1
                     }, {
                         "width": "10%",
-                        "targets": 2
+                        "targets": 2,
+                        render: function(data, type, row) {
+                            return '\u200C' + data;
+                        }
                     }, {
                         "width": "10%",
                         "targets": 3,
