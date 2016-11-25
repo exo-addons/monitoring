@@ -1,19 +1,18 @@
 <div id="hibernateMonitor">
-    <div class="uiBox">
-        <h5 class="title">Monitoring Application</h5>
+        <h5 class="title">${monitoringPortlet}</h5>
         <div class="uiContentBox">
             <div class="navbar">
                 <div class="navbar-inner">
                     <div class="container">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#queries" aria-controls="#queries" role="tab" data-toggle="tab">Queries</a></li>
-                            <li><a href="#collections" aria-controls="#collections" role="tab" data-toggle="tab" onClick="loadCollectionsStatistics();">Collections</a></li>
-                            <li><a href="#entities" aria-controls="#entities" role="tab" data-toggle="tab" onClick="loadEntitiesStatistics();">Entities</a></li>
-                            <li><a href="#caches" aria-controls="#caches" role="tab" data-toggle="tab" onClick="loadCachesStatistics();">Caches</a></li>
-                            <li><a href="#portlets" aria-controls="#portlets" role="tab" data-toggle="tab" onClick="loadPortletsStatistics();">Portlets</a></li>
-                            <li><a href="#templates" aria-controls="#templates" role="tab" data-toggle="tab" onClick="loadTemplatesStatistics();">Templates</a></li>
-                            <li><a href="#applications" aria-controls="#applications" role="tab" data-toggle="tab" onClick="loadApplicationsStatistics();">Applications Data</a></li>
-                            <li><a href="#memory" aria-controls="#memory" role="tab" data-toggle="tab" onClick="loadMemoryStatistics();">Memory</a></li>
+                            <li class="active"><a href="#queries" aria-controls="#queries" role="tab" data-toggle="tab">${queriesLabel}</a></li>
+                            <li><a href="#entities" aria-controls="#entities" role="tab" data-toggle="tab" onClick="loadEntitiesStatistics();">${entitiesLabel}</a></li>
+                            <li><a href="#collections" aria-controls="#collections" role="tab" data-toggle="tab" onClick="loadCollectionsStatistics();">${collectionsLabel}</a></li>
+                            <li><a href="#caches" aria-controls="#caches" role="tab" data-toggle="tab" onClick="loadCachesStatistics();">${cachesLabel}</a></li>
+                            <li><a href="#portlets" aria-controls="#portlets" role="tab" data-toggle="tab" onClick="loadPortletsStatistics();">${portletsLabel}</a></li>
+                            <li><a href="#templates" aria-controls="#templates" role="tab" data-toggle="tab" onClick="loadTemplatesStatistics();">${templatesLabel}</a></li>
+                            <li><a href="#applications" aria-controls="#applications" role="tab" data-toggle="tab" onClick="loadApplicationsStatistics();">${applicationsLabel}</a></li>
+                            <li><a href="#memory" aria-controls="#memory" role="tab" data-toggle="tab" onClick="loadMemoryStatistics();">${memoryLabel}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -24,12 +23,12 @@
                     #{include path=queries.gtmpl}#{/include}
                 </div>
 
-                <div role="tabpanel" class="tab-pane" id="collections">
-                    #{include path=collections.gtmpl}#{/include}
-                </div>
-
                 <div role="tabpanel" class="tab-pane" id="entities">
                     #{include path=entities.gtmpl}#{/include}
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="collections">
+                    #{include path=collections.gtmpl}#{/include}
                 </div>
 
                 <div role="tabpanel" class="tab-pane" id="caches">
@@ -50,5 +49,4 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>

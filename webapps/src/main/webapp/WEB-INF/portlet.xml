@@ -14,9 +14,12 @@
         <supports>
             <mime-type>text/html</mime-type>
         </supports>
+        <supported-locale>en</supported-locale>
+        <resource-bundle>locale.portlet.monitoring.MonitoringPortlet</resource-bundle>
         <portlet-info>
             <title>MonitoringPortlet</title>
             <keywords>eXo Monitoring Portlet</keywords>
         </portlet-info>
     </portlet>
+
 </portlet-app>

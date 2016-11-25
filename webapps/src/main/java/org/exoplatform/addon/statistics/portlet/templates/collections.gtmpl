@@ -1,13 +1,13 @@
 <table id="collectionsTable" class="display nowrap" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th>Collection Role Name</th>
-            <th>Performance</th>
-            <th>Access Count</th>
-            <th>Loads</th>
-            <th>Fetches</th>
-            <th>Recreations</th>
-            <th>Modifications</th>
+            <th>${collectionLabel}</th>
+            <th>${performanceLabel}</th>
+            <th>${accessCountLabel}</th>
+            <th>${loadsLabel}</th>
+            <th>${fetchesLabel}</th>
+            <th>${recreationsLabel}</th>
+            <th>${modificationsLabel}</th>
         </tr>
     </thead>
     <tbody>

@@ -1,13 +1,13 @@
 <table id="entitiesTable" class="display nowrap" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th>Entity</th>
-            <th>Performance</th>
-            <th>Access Count</th>
-            <th>Loads</th>
-            <th>Fetches</th>
-            <th class="entitywidth">Optimistic Faults</th>
-            <th>Modifications</th>
+            <th>${entityLabel}</th>
+            <th>${performanceLabel}</th>
+            <th>${accessCountLabel}</th>
+            <th>${loadsLabel}</th>
+            <th>${fetchesLabel}</th>
+            <th class="entitywidth">${optimisticLabel}</th>
+            <th>${modificationsLabel}</th>
         </tr>
     </thead>
     <tbody>

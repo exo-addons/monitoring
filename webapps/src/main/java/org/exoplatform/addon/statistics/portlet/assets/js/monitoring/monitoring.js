@@ -62,7 +62,10 @@ function loadQueriesStatistics() {
                 "targets": 3
             }, {
                 "width": "9%",
-                "targets": 4
+                "targets": 4,
+                render: function(data, type, row) {
+                    return '\u200C' + data;
+                }
             }]
 
         });
@@ -517,17 +520,17 @@ function loadApplicationsStatistics() {
 
         {
             jQuery("#applicationDataInfo ul").html("");
-            jQuery("#applicationDataInfo ul").append('<li>' + '<p class="font16">Number of Activities :' + '<span>' + data.activitiesCount + '</span>' + '<p/>' + '</li>' + '<hr width=30%>');
-            jQuery("#applicationDataInfo ul").append('<li>' + '<p class="font16">Number of Spaces :' + '<span>' + data.spacesCount + '</span>' + '<p/>' + '</li>' + '<hr width=30%>');
-            jQuery("#applicationDataInfo ul").append('<li>' + '<p class="font16">Number of Identities :' + '<span>' + data.identitiesCount + '</span>' + '<p/>' + '</li>' + '<hr width=30%>');
-            jQuery("#applicationDataInfo ul").append('<li>' + '<p class="font16">Number of Connections :' + '<span>' + data.connectionsCount + '</span>' + '<p/>' + '</li>' + '<hr width=30%>');
-            jQuery("#applicationDataInfo ul").append('<li>' + '<p class="font16">Number of Wiki Pages :' + '<span>' + data.pagesCount + '</span>' + '<p/>' + '</li>' + '<hr width=30%>');
-            jQuery("#applicationDataInfo ul").append('<li>' + '<p class="font16">Number of Wiki Templates :' + '<span>' + data.templatesCount + '</span>' + '<p/>' + '</li>' + '<hr width=30%>');
-            jQuery("#applicationDataInfo ul").append('<li>' + '<p class="font16">Number of Wiki Attachements :' + '<span>' + data.attachmentCount + '</span>' + '<p/>' + '</li>' + '<hr width=30%>');
+            jQuery("#applicationDataInfo ul").append('<li>' + '<p class="font16">Number of Activities : ' + '<span>' + data.activitiesCount + '</span>' + '<p/>' + '</li>' + '<hr width=30%>');
+            jQuery("#applicationDataInfo ul").append('<li>' + '<p class="font16">Number of Spaces : ' + '<span>' + data.spacesCount + '</span>' + '<p/>' + '</li>' + '<hr width=30%>');
+            jQuery("#applicationDataInfo ul").append('<li>' + '<p class="font16">Number of Identities : ' + '<span>' + data.identitiesCount + '</span>' + '<p/>' + '</li>' + '<hr width=30%>');
+            jQuery("#applicationDataInfo ul").append('<li>' + '<p class="font16">Number of Connections : ' + '<span>' + data.connectionsCount + '</span>' + '<p/>' + '</li>' + '<hr width=30%>');
+            jQuery("#applicationDataInfo ul").append('<li>' + '<p class="font16">Number of Wiki Pages : ' + '<span>' + data.pagesCount + '</span>' + '<p/>' + '</li>' + '<hr width=30%>');
+            jQuery("#applicationDataInfo ul").append('<li>' + '<p class="font16">Number of Wiki Templates : ' + '<span>' + data.templatesCount + '</span>' + '<p/>' + '</li>' + '<hr width=30%>');
+            jQuery("#applicationDataInfo ul").append('<li>' + '<p class="font16">Number of Wiki Attachements : ' + '<span>' + data.attachmentCount + '</span>' + '<p/>' + '</li>' + '<hr width=30%>');
             var chart = new CanvasJS.Chart("applicationContainer", {
                 height: 300,
                 width: 400,
-
+                backgroundColor: "#FAFAFA",
                 title: {
                     text: "Applications Statistics",
                     fontSize: 15,
@@ -587,19 +590,17 @@ function loadMemoryStatistics() {
                 var chartTitle = "";
                 var chartContainer = ""
                 jQuery(memoryDiv + key + " ul").html("");
-                jQuery(memoryDiv + key + " ul").append('<li>' + '<p>Free :' + '<span>' + free + '</span>' + '<p/>' + '</li>' + '<hr width=20%>');
-                jQuery(memoryDiv + key + " ul").append('<li>' + '<p>Used :' + '<span>' + used + '</span>' + '<p/>' + '</li>' + '<hr width=20%>');
-                jQuery(memoryDiv + key + " ul").append('<li>' + '<p>Total :' + '<span>' + total + '</span>' + '<p/>' + '</li>' + '<hr width=20%>');
+                jQuery(memoryDiv + key + " ul").append('<li>' + '<p>Free : ' + '<span>' + free + '</span>' + '<p/>' + '</li>' + '<hr width=20%>');
+                jQuery(memoryDiv + key + " ul").append('<li>' + '<p>Used : ' + '<span>' + used + '</span>' + '<p/>' + '</li>' + '<hr width=20%>');
+                jQuery(memoryDiv + key + " ul").append('<li>' + '<p>Total : ' + '<span>' + total + '</span>' + '<p/>' + '</li>' + '<hr width=20%>');
                 chartContainer = (key == 0) ? "memoryHeapChart" : "memoryNonHeapChart";
                 chartTitle = (key == 0) ? "Memory Heap Usage" : "Memory Non-Heap Usage";
                 var memoryHeapChart = new CanvasJS.Chart(chartContainer, {
 
-                    height: 148,
-                    width: 280,
-                    title: {
-                        text: chartTitle
+                    height: 220,
+                    width: 380,
+                    backgroundColor: "#FAFAFA",
 
-                    },
                     legend: {
                         horizontalAlign: "right",
                         verticalAlign: "center",
@@ -608,7 +609,8 @@ function loadMemoryStatistics() {
                     data: [{
                         type: "pie",
                         showInLegend: true,
-
+                        indexLabelWrap: false,  // change to true
+                        indexLabel: "{y}%",
                         dataPoints: [{
                             legendText: "Free",
                             y: ((1 - (memory.used / memory.max)) * 100).toFixed(0)

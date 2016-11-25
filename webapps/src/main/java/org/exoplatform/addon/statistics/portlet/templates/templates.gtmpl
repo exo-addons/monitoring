@@ -1,11 +1,11 @@
 <table id="templatesTable" class="display nowrap" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th>Template Name</th>
-            <th>Max Time (ms)</th>
-            <th>Min Time (ms)</th>
-            <th>Average Time (ms)</th>
-            <th>Execution Count</th>
+            <th>${templateLabel}</th>
+            <th>${maxTimeLabel}</th>
+            <th>${minTimeLabel}</th>
+            <th>${avgTimeLabel}</th>
+            <th>${executionCountLabel}</th>
         </tr>
     </thead>
     <tbody>

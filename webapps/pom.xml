@@ -90,6 +90,9 @@
           <include>**/*.png</include>
         </includes>
       </resource>
+      <resource>
+      <directory>src/main/resources</directory>
+    </resource>
     </resources>
     <finalName>monitoring</finalName>
   </build>

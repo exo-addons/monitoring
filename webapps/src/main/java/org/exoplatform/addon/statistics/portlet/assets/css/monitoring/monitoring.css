@@ -48,16 +48,16 @@ table.dataTable.nowrap th.percentage, table.dataTable.nowrap td.percentage{
 }
 table.dataTable.nowrap th.yellow, table.dataTable.nowrap td.yellow{
     width: 110px!important;
-    background:#ffe347!important;
+    background:#fafad2!important;
 }
 table.dataTable.nowrap th.red, table.dataTable.nowrap td.red{
     width: 110px!important;
-    background:#ff5933!important;
+    background:#f7b4a3!important;
 }
 
 table.dataTable.nowrap th.green, table.dataTable.nowrap td.green{
     width: 110px!important;
-    background:#3CB371!important;
+    background:#c3fac6!important;
 }
 
 .canvasjs-chart-credit {

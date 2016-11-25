@@ -42,17 +42,17 @@ public class HibernateStatisticsService extends EntityManagerService implements 
         try {
 
             if( !mBeanServer.isRegistered(new ObjectName(HIBERNATE_STATISTICS_MBEAN))){
-                LOGGER.info("==== Start Register MBean Hibernate Statistics ==== ");
+
                 statsMBean = new StatisticsService();
                 statsMBean.setSessionFactory(sessionFactory);
                 statsMBean.setStatisticsEnabled(true);
                 mBeanServer.registerMBean(statsMBean, new ObjectName(HIBERNATE_STATISTICS_MBEAN));
                 statsMBean.clear();
-                LOGGER.info("==== End Register MBean Hibernate Statistics ==== ");
+                LOGGER.info("The Hibernate Statistics MBean has been successfully registered !");
             }
 
         } catch (Exception e) {
-            LOGGER.error("Error during register MBean Hibernate Statistics");
+            LOGGER.error("Error during register Hibernate Statistics MBean ");
         }
     }
 
