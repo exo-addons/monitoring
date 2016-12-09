@@ -63,6 +63,6 @@ table.dataTable.nowrap th.green, table.dataTable.nowrap td.green{
 .canvasjs-chart-credit {
    display: none;
 }
-
-
-
+.legend{
+font-family:"Helvetica Neue",Helvetica,Arial,sans-serif!important;
+}

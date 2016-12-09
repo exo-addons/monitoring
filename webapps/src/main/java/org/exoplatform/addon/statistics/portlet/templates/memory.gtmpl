@@ -1,23 +1,24 @@
 <div id="memoryContent">
-    <div id="heapMemory" class="row" style="padding:15px">
-        <label style="padding:15px"><b>Memory Heap</b>
-        </label>
+    <fieldset>
+        <legend>
+            <label style="padding:10px"><b>Memory Heap</b>
+            </label>
+        </legend>
         <div id="memoryHeapInfos0" class="span6">
             <hr style="width: 20%; height: 2%" />
             <ul></ul>
         </div>
         <div id="memoryHeapChart" class="span6"></div>
-    </div>
-    <div id="hrDiv" class="row">
-        <hr style="width: 35%; height: 2%;align:center"/>
-    </div>
-    <div id="nonHeapMemory" class="row" style="padding:15px">
-        <label style="padding:15px"><b>Memory Non-Heap</b>
-        </label>
+    </fieldset>
+    <fieldset>
+        <legend>
+            <label style="padding:10px"><b>Memory Non-Heap</b>
+            </label>
+        </legend>
         <div id="memoryHeapInfos1" class="span6">
             <hr style="width: 20%; height: 2%" />
             <ul></ul>
         </div>
         <div id="memoryNonHeapChart" class="span6"></div>
-    </div>
+    </fieldset>
 </div>

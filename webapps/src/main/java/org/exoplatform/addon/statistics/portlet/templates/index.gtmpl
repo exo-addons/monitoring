@@ -1,5 +1,5 @@
 <div id="hibernateMonitor">
-        <h5 class="title">${monitoringPortlet}</h5>
+        <h5 style="padding:3px;">${monitoringPortlet}</h5>
         <div class="uiContentBox">
             <div class="navbar">
                 <div class="navbar-inner">

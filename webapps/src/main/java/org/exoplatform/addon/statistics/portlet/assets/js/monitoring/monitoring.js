@@ -533,14 +533,16 @@ function loadApplicationsStatistics() {
                 backgroundColor: "#FAFAFA",
                 title: {
                     text: "Applications Statistics",
-                    fontSize: 15,
+                    fontSize: 12,
                     horizontalAlign: "center",
+                    fontFamily: "Helvetica"
 
                 },
                 legend: {
                     horizontalAlign: "right",
                     verticalAlign: "center",
-
+                    fontSize: 12,
+                    fontFamily: "Helvetica"
                 },
                 data: [{
                     type: "pie",
@@ -604,6 +606,8 @@ function loadMemoryStatistics() {
                     legend: {
                         horizontalAlign: "right",
                         verticalAlign: "center",
+                        fontSize: 12,
+                        fontFamily: "Helvetica"
 
                     },
                     data: [{
@@ -634,8 +638,19 @@ function loadMemoryStatistics() {
 }
 
 function formatBytes(bytes) {
-    if (bytes < 1024) return bytes + " Bytes";
-    else if (bytes < 1048576) return (bytes / 1024).toFixed(2) + " KB";
-    else if (bytes < 1073741824) return (bytes / 1048576).toFixed(2) + " MB";
-    else return (bytes / 1073741824).toFixed(2) + " GB";
+    var K = 1024;
+    var M = 1024 * K;
+    var G = 1024 * M;
+    if (bytes < K) {
+      return bytes + " Bytes";
+    } else if (bytes < M) {
+      return round2decimals(bytes / K) + " KB" ;
+    } else if (bytes < G) {
+      return round2decimals(bytes / M) + " MB" ;
+    } else {
+      return round2decimals(bytes / G) + " GB";
+    }
+  }
+function round2decimals (number) {
+  return Math.round(number * 100) / 100;
 }
